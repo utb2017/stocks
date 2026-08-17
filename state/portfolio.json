@@ -1,0 +1,814 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-13T11:08:45.659096-07:00",
+  "state_status": "ACTIVE_RECOMMENDATION_SHEET",
+  "account_ref": "agentic_cash_ending_1146",
+  "market_date": "2026-08-12",
+  "price_basis": "official_sip_close_for_current_position_set",
+  "price_source": "Robinhood get_equity_quotes results[].close; live quotes separately reconciled",
+  "policy_status": "TARGETS_APPROVED_ENABLED",
+  "reconciliation": {
+    "holding_count": 23,
+    "cash": "0.00000000",
+    "buying_power": "0.00000000",
+    "pending_deposits": "0.00000000",
+    "unsettled_funds": "0.00000000",
+    "open_order_reserve": "0.00000000",
+    "official_close_equity_value": "255.23593764",
+    "official_close_total_value": "255.23593764",
+    "cost_basis": "252.25052585",
+    "unrealized_pnl": "2.98541179",
+    "broker_live_total_value_at_retrieval": "255.446944005",
+    "status": "POSITION_QUOTE_CLOSE_TRADABILITY_AND_FUNDS_RECONCILED",
+    "notes": [
+      "The current 23-position set includes only owner-placed fills; the automation made no trade.",
+      "The table uses all 23 official 2026-08-12 SIP closes; all 23 live quotes and tradability rows reconciled at the funded pass.",
+      "Broker cash and buying power were both $0 with no pending deposits, unsettled funds, or open equity orders, so executable spending is $0."
+    ]
+  },
+  "sleeves": [
+    {
+      "name": "broad_global_core",
+      "value": "75.62592305",
+      "weight_pct": 29.62980987288213
+    },
+    {
+      "name": "northeast_power",
+      "value": "60.26605578",
+      "weight_pct": 23.611900556497197
+    },
+    {
+      "name": "defense_government",
+      "value": "51.62222696",
+      "weight_pct": 20.225297204350223
+    },
+    {
+      "name": "data_center_enablers_design",
+      "value": "26.69111501",
+      "weight_pct": 10.457428235535836
+    },
+    {
+      "name": "regulated_utilities",
+      "value": "25.43059962",
+      "weight_pct": 9.963565419172607
+    },
+    {
+      "name": "precious_metals",
+      "value": "15.60001722",
+      "weight_pct": 6.111998711562004
+    },
+    {
+      "name": "cash_reserve",
+      "value": "0.00000000",
+      "weight_pct": 0.0
+    }
+  ],
+  "holdings": [
+    {
+      "ticker": "CARR",
+      "quantity": "0.031054",
+      "average_buy_price": "64.400000",
+      "price": "63.08",
+      "price_date": "2026-08-12",
+      "market_value": "1.95888632",
+      "cost_basis": "1.99987760",
+      "unrealized_pnl": "-0.04099128",
+      "weight_pct": 0.7674806056359235,
+      "primary_sleeve": "data_center_enablers_design",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "TRACKING_SIZE"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "A roughly $2 position cannot materially express the thesis, and Robinhood and Alpha Vantage use different analyst samples.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-CARR-2026-08-11",
+        "rating-image-CARR",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "YORW",
+      "quantity": "0.040623",
+      "average_buy_price": "30.770000",
+      "price": "32.54",
+      "price_date": "2026-08-12",
+      "market_value": "1.32187242",
+      "cost_basis": "1.24996971",
+      "unrealized_pnl": "0.07190271",
+      "weight_pct": 0.5179021544624518,
+      "primary_sleeve": "regulated_utilities",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "TRACKING_SIZE",
+        "DATA_STALE"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "Alpha Vantage returned no analyst rating counts and the small position does not materially diversify the account.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-YORW-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "JBL",
+      "quantity": "0.008427",
+      "average_buy_price": "356.000000",
+      "price": "366.16",
+      "price_date": "2026-08-12",
+      "market_value": "3.08563032",
+      "cost_basis": "3.00001200",
+      "unrealized_pnl": "0.08561832",
+      "weight_pct": 1.2089325463062952,
+      "primary_sleeve": "data_center_enablers_design",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "TRACKING_SIZE"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "A sub-$1 close value cannot materially express the thesis, and its role within data-center exposure must be compared with existing enablers.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-JBL-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "SPXC",
+      "quantity": "0.027519",
+      "average_buy_price": "218.030000",
+      "price": "218.18",
+      "price_date": "2026-08-12",
+      "market_value": "6.00409542",
+      "cost_basis": "5.99996757",
+      "unrealized_pnl": "0.00412785",
+      "weight_pct": 2.3523707027763994,
+      "primary_sleeve": "data_center_enablers_design",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "TRACKING_SIZE"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "A sub-$1 close value cannot materially express the thesis, and the company-specific thesis still needs primary-source evidence.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-SPXC-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "VRT",
+      "quantity": "0.003703",
+      "average_buy_price": "270.050000",
+      "price": "288.36",
+      "price_date": "2026-08-12",
+      "market_value": "1.06779708",
+      "cost_basis": "0.99999515",
+      "unrealized_pnl": "0.06780193",
+      "weight_pct": 0.4183568700682287,
+      "primary_sleeve": "data_center_enablers_design",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "flags": [
+        "TRACKING_SIZE"
+      ],
+      "case": "Vertiv's Q2 2026 primary release showed 24% sales growth, substantial margin and cash-flow expansion, a net-cash position, and raised guidance across key metrics.",
+      "counterargument": "A roughly 65.2 trailing PE and execution risk on very rapid capacity expansion reduce the margin of safety, while the data-center sleeve is already near target.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-VRT-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "vrt-q2-2026-primary",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "DLR",
+      "quantity": "0.030381",
+      "average_buy_price": "197.490000",
+      "price": "197.06",
+      "price_date": "2026-08-12",
+      "market_value": "5.98687986",
+      "cost_basis": "5.99994369",
+      "unrealized_pnl": "-0.01306383",
+      "weight_pct": 2.34562574352059,
+      "primary_sleeve": "data_center_enablers_design",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "flags": [
+        "TRACKING_SIZE"
+      ],
+      "case": "Digital Realty reported record Q2 bookings and backlog, strong renewal pricing, and raised its 2026 core-FFO outlook.",
+      "counterargument": "The thesis carries $18.6 billion of debt, ongoing equity issuance and valuation risk; the data-center sleeve is already near target.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-DLR-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "dlr-q2-2026-primary",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "TLN",
+      "quantity": "0.021222",
+      "average_buy_price": "329.850000",
+      "price": "365.07",
+      "price_date": "2026-08-12",
+      "market_value": "7.74751554",
+      "cost_basis": "7.00007670",
+      "unrealized_pnl": "0.74743884",
+      "weight_pct": 3.035432867187989,
+      "primary_sleeve": "northeast_power",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "flags": [],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "This HOLD is not a fresh investment endorsement; the thesis and valuation still require source-by-source review.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-TLN-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "VST",
+      "quantity": "0.124463",
+      "average_buy_price": "144.620000",
+      "price": "146.68",
+      "price_date": "2026-08-12",
+      "market_value": "18.25623284",
+      "cost_basis": "17.99983906",
+      "unrealized_pnl": "0.25639378",
+      "weight_pct": 7.152689001714829,
+      "primary_sleeve": "northeast_power",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "flags": [],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "This HOLD is not a fresh investment endorsement; the thesis and valuation still require source-by-source review.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-VST-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "PPL",
+      "quantity": "0.508319",
+      "average_buy_price": "35.410000",
+      "price": "35.46",
+      "price_date": "2026-08-12",
+      "market_value": "18.02499174",
+      "cost_basis": "17.99957579",
+      "unrealized_pnl": "0.02541595",
+      "weight_pct": 7.062090043692642,
+      "primary_sleeve": "northeast_power",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "flags": [],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "This HOLD is not a fresh investment endorsement; the thesis and valuation still require source-by-source review.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-PPL-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "CEG",
+      "quantity": "0.032387",
+      "average_buy_price": "277.890000",
+      "price": "278.68",
+      "price_date": "2026-08-12",
+      "market_value": "9.02560916",
+      "cost_basis": "9.00002343",
+      "unrealized_pnl": "0.02558573",
+      "weight_pct": 3.53618273486638,
+      "primary_sleeve": "northeast_power",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "flags": [],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "This HOLD is not a fresh investment endorsement; the thesis and valuation still require source-by-source review.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-CEG-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "LDOS",
+      "quantity": "0.117656",
+      "average_buy_price": "135.990000",
+      "price": "140.38",
+      "price_date": "2026-08-12",
+      "market_value": "16.51654928",
+      "cost_basis": "16.00003944",
+      "unrealized_pnl": "0.51650984",
+      "weight_pct": 6.4710908004247925,
+      "primary_sleeve": "defense_government",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "CONCENTRATION_ALERT"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "LDOS is nearly 12% of the account and sits inside a 37.1% defense sleeve, so concentration must be reviewed before adding.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-LDOS-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "GEV",
+      "quantity": "0.006935",
+      "average_buy_price": "1009.370000",
+      "price": "1039.9",
+      "price_date": "2026-08-12",
+      "market_value": "7.21170650",
+      "cost_basis": "6.99998095",
+      "unrealized_pnl": "0.21172555",
+      "weight_pct": 2.8255059090353574,
+      "primary_sleeve": "northeast_power",
+      "action": "BUY",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "flags": [],
+      "case": "GE Vernova's Q2 2026 primary release reported 22% revenue growth, a $176 billion backlog, stronger margins and cash generation, and raised full-year revenue and free-cash-flow guidance. The Northeast power sleeve remains below target.",
+      "counterargument": "The shares already carry a roughly 29.8 trailing PE and remain exposed to execution, cycle, and Wind-segment risks; any allocation must remain small and cash-floor limited.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-GEV-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "gev-q2-2026-primary",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "MONITOR",
+        "date": null
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "quantity": "0.031250",
+      "average_buy_price": "160.000000",
+      "price": "171.04",
+      "price_date": "2026-08-12",
+      "market_value": "5.34500000",
+      "cost_basis": "5.00000000",
+      "unrealized_pnl": "0.34500000",
+      "weight_pct": 2.0941408366790837,
+      "primary_sleeve": "defense_government",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "CONCENTRATION_ALERT"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "Current fundamentals show a roughly 146 trailing PE, leaving little valuation margin even if operating growth remains strong.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-PLTR-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "CDNS",
+      "quantity": "0.026577",
+      "average_buy_price": "338.640000",
+      "price": "323.13",
+      "price_date": "2026-08-12",
+      "market_value": "8.58782601",
+      "cost_basis": "9.00003528",
+      "unrealized_pnl": "-0.41220927",
+      "weight_pct": 3.3646617672284,
+      "primary_sleeve": "data_center_enablers_design",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "The analyst sources disagree on sample size. Q2 Form 4 review found $71.84 million of gross disposal-row notional, but $70.60 million was under Rule 10b5-1 plans and the total also includes tax withholding, gifts/transfers, and zero-value derivative rows, so it is not a clean bearish-selling signal.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-CDNS-2026-08-11",
+        "rating-image-CDNS",
+        "cdns-insider-q2-2026",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "BAH",
+      "quantity": "0.158562",
+      "average_buy_price": "75.680000",
+      "price": "78.4",
+      "price_date": "2026-08-12",
+      "market_value": "12.43126080",
+      "cost_basis": "11.99997216",
+      "unrealized_pnl": "0.43128864",
+      "weight_pct": 4.8704978283794,
+      "primary_sleeve": "defense_government",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "CONCENTRATION_ALERT"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "The defense sleeve is 37.1% of the account and Alpha Vantage's sample is mostly HOLD/SELL, which is context requiring deeper thesis review rather than an automatic verdict.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-BAH-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "PEG",
+      "quantity": "0.106030",
+      "average_buy_price": "75.450000",
+      "price": "75.87",
+      "price_date": "2026-08-12",
+      "market_value": "8.04449610",
+      "cost_basis": "7.99996350",
+      "unrealized_pnl": "0.04453260",
+      "weight_pct": 3.151788174652128,
+      "primary_sleeve": "regulated_utilities",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "MEDIUM",
+      "thesis_state": "WATCH",
+      "flags": [
+        "NO_NEW_MONEY",
+        "WAITING_EVENT"
+      ],
+      "case": "Primary sources support HOLD/monitor: PSEG maintained $4.28-$4.40 adjusted EPS guidance after the NJ laws, and PJM explicitly includes data-center load growth in the PSE&G zone.",
+      "counterargument": "The 50-bp FERC adder is still earned but could be lost prospectively from 2027, with PSEG estimating about a $40 million annual impact; BPU tariff implementation remains uncertain and none of this proves why the share price weakened.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-PEG-2026-08-11",
+        "rating-image-PEG",
+        "peg-regulatory-guidance-load-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "WAITING_EVENT",
+        "date": "2027-01-01"
+      }
+    },
+    {
+      "ticker": "CWT",
+      "quantity": "0.160481",
+      "average_buy_price": "49.850000",
+      "price": "49.98",
+      "price_date": "2026-08-12",
+      "market_value": "8.02084038",
+      "cost_basis": "7.99997785",
+      "unrealized_pnl": "0.02086253",
+      "weight_pct": 3.142519997051932,
+      "primary_sleeve": "regulated_utilities",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "The account already has 18.3% in regulated utilities and this holding is not part of the stated Northeast data-center thesis.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-CWT-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "AWK",
+      "quantity": "0.059616",
+      "average_buy_price": "134.190000",
+      "price": "134.92",
+      "price_date": "2026-08-12",
+      "market_value": "8.04339072",
+      "cost_basis": "7.99987104",
+      "unrealized_pnl": "0.04351968",
+      "weight_pct": 3.151355093006095,
+      "primary_sleeve": "regulated_utilities",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "The account already has 18.3% in regulated utilities and Alpha Vantage's sample is mostly HOLD/strong-sell rather than a reason to add.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-AWK-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "FNV",
+      "quantity": "0.018122",
+      "average_buy_price": "237.280000",
+      "price": "235.94",
+      "price_date": "2026-08-12",
+      "market_value": "4.27570468",
+      "cost_basis": "4.29998816",
+      "unrealized_pnl": "-0.02428348",
+      "weight_pct": 1.6751969646338398,
+      "primary_sleeve": "precious_metals",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "EARNINGS_LOCK"
+      ],
+      "case": "The position is preserved ahead of its scheduled 2026-08-11 after-close report, with six consecutive reported beats in the retained broker history.",
+      "counterargument": "The upcoming event can change the evidence, and Robinhood and Alpha Vantage use materially different analyst samples.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-FNV-2026-08-11",
+        "rating-image-FNV",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "SCHEDULED",
+        "date": "2026-08-11",
+        "session": "after_close"
+      }
+    },
+    {
+      "ticker": "AEM",
+      "quantity": "0.061153",
+      "average_buy_price": "179.880000",
+      "price": "185.18",
+      "price_date": "2026-08-12",
+      "market_value": "11.32431254",
+      "cost_basis": "11.00020164",
+      "unrealized_pnl": "0.32411090",
+      "weight_pct": 4.436801746928165,
+      "primary_sleeve": "precious_metals",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "Precious metals already represent 9.0% of the account before any Barrick addition, and the sleeve's intended target is not approved.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-AEM-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "CACI",
+      "quantity": "0.010800",
+      "average_buy_price": "648.150000",
+      "price": "680.08",
+      "price_date": "2026-08-12",
+      "market_value": "7.34486400",
+      "cost_basis": "7.00002000",
+      "unrealized_pnl": "0.34484400",
+      "weight_pct": 2.877676266090567,
+      "primary_sleeve": "defense_government",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "CONCENTRATION_ALERT"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "The defense sleeve is already 37.1%, so an intact company thesis would still not justify new money without an approved concentration policy.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-CACI-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "SAIC",
+      "quantity": "0.079048",
+      "average_buy_price": "126.510000",
+      "price": "126.31",
+      "price_date": "2026-08-12",
+      "market_value": "9.98455288",
+      "cost_basis": "10.00036248",
+      "unrealized_pnl": "-0.01580960",
+      "weight_pct": 3.9118914727763805,
+      "primary_sleeve": "defense_government",
+      "action": "HOLD",
+      "sell_scope": null,
+      "confidence": "LOW",
+      "thesis_state": "WATCH",
+      "flags": [
+        "MIGRATION_REVIEW",
+        "NO_NEW_MONEY",
+        "CONCENTRATION_ALERT"
+      ],
+      "case": "The position is preserved during observe-only migration; no validated thesis-break evidence was established by this seed snapshot.",
+      "counterargument": "The defense sleeve is already concentrated and Alpha Vantage shows a mostly HOLD sample, so the business and valuation case must be refreshed before adding.",
+      "evidence_ids": [
+        "rh-positions-2026-08-10",
+        "rh-close-2026-08-10",
+        "av-overview-SAIC-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "next_catalyst": {
+        "status": "UNKNOWN",
+        "date": null
+      }
+    },
+    {
+      "ticker": "VT",
+      "primary_sleeve": "broad_global_core",
+      "sell_scope": null,
+      "flags": [],
+      "next_catalyst": {
+        "status": "MONITOR",
+        "date": null
+      },
+      "quantity": "0.468185",
+      "average_buy_price": "161.690000",
+      "price": "161.53",
+      "price_date": "2026-08-12",
+      "market_value": "75.62592305",
+      "cost_basis": "75.70083265",
+      "unrealized_pnl": "-0.07490960",
+      "action": "HOLD",
+      "confidence": "MEDIUM",
+      "thesis_state": "INTACT",
+      "case": "VT remains a low-cost diversified global core holding and is now approximately at its 30% sleeve target after owner purchases.",
+      "counterargument": "Additional near-term VT buying would crowd out the explicitly growth-oriented Northeast power sleeve and the fund remains US-heavy by market capitalization.",
+      "evidence_ids": [
+        "vanguard-vt-factsheet-2026-06-30",
+        "robinhood-funded-reconciliation-2026-08-11-1113",
+        "nyse-market-open-2026-08-11",
+        "robinhood-funded-reconciliation-2026-08-13-1108",
+        "rh-fundamentals-2026-08-13"
+      ],
+      "weight_pct": 29.62980987288213
+    }
+  ]
+}

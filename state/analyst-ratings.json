@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T22:11:20.3581547-07:00",
+  "policy": {
+    "evidence_role": "secondary_context",
+    "standalone_verdict_allowed": false,
+    "merge_provider_consensus": false,
+    "stale_after_days": 7,
+    "grouped_buy_definition": "strong_buy_plus_buy",
+    "grouped_sell_definition": "sell_plus_strong_sell",
+    "provider_disagreement_action": "display_separately_and_flag"
+  },
+  "alpha_vantage": {
+    "tool": "COMPANY_OVERVIEW",
+    "source_url": "https://mcp.alphavantage.co/mcp",
+    "authentication": "OAuth",
+    "capability": "read_only",
+    "retrieval_batches": [
+      {
+        "batch_id": "av-2026-08-11-0503z",
+        "started_at": "2026-08-11T05:03:43Z",
+        "completed_at": "2026-08-11T05:05:26Z",
+        "symbols": ["LDOS", "BAH", "PLTR", "CACI", "SAIC", "CARR", "VRT", "JBL", "SPXC", "DLR", "CDNS"],
+        "result": "PARTIAL",
+        "notes": ["CARR output was truncated and was replaced by the successful av-2026-08-11-0510z retry."]
+      },
+      {
+        "batch_id": "av-2026-08-11-0506z",
+        "started_at": "2026-08-11T05:06:36Z",
+        "completed_at": "2026-08-11T05:07:31Z",
+        "symbols": ["TLN", "VST", "PPL", "CEG", "GEV", "CWT", "AWK", "YORW", "PEG", "AEM", "FNV"],
+        "result": "COMPLETE",
+        "notes": []
+      },
+      {
+        "batch_id": "av-2026-08-11-0510z",
+        "started_at": "2026-08-11T05:10:06Z",
+        "completed_at": "2026-08-11T05:10:39.650106Z",
+        "symbols": ["CARR", "B", "LEU"],
+        "result": "COMPLETE",
+        "notes": []
+      }
+    ],
+    "records": [
+      {
+        "ticker": "TLN",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "Talen Energy Corporation",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "467.25",
+        "ratings": {"strong_buy": "6", "buy": "9", "hold": "2", "sell": "0", "strong_sell": "0", "total": 17},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "VST",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "Vistra Corp.",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "222.11",
+        "ratings": {"strong_buy": "4", "buy": "15", "hold": "0", "sell": "0", "strong_sell": "1", "total": 20},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "PPL",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "PPL Corporation",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "41.6",
+        "ratings": {"strong_buy": "3", "buy": "9", "hold": "4", "sell": "0", "strong_sell": "0", "total": 16},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "CEG",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "Constellation Energy Corp",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "351.24",
+        "ratings": {"strong_buy": "6", "buy": "14", "hold": "3", "sell": "0", "strong_sell": "0", "total": 23},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "GEV",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "GE Vernova LLC",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "1231.48",
+        "ratings": {"strong_buy": "6", "buy": "24", "hold": "8", "sell": "0", "strong_sell": "0", "total": 38},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "LDOS",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Leidos Holdings Inc",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "149.6",
+        "ratings": {"strong_buy": "3", "buy": "4", "hold": "10", "sell": "0", "strong_sell": "0", "total": 17},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "BAH",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Booz Allen Hamilton Holding",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "85.58",
+        "ratings": {"strong_buy": "0", "buy": "3", "hold": "8", "sell": "1", "strong_sell": "2", "total": 14},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "PLTR",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Palantir Technologies Inc.",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "189.9",
+        "ratings": {"strong_buy": "1", "buy": "19", "hold": "10", "sell": "1", "strong_sell": "1", "total": 32},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "CACI",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "CACI International Inc",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "647.29",
+        "ratings": {"strong_buy": "1", "buy": "11", "hold": "4", "sell": "0", "strong_sell": "0", "total": 16},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "SAIC",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Science Applications International Corporation Common Stock",
+        "latest_quarter": "2026-04-30",
+        "analyst_target_price": "120",
+        "ratings": {"strong_buy": "0", "buy": "2", "hold": "8", "sell": "1", "strong_sell": "0", "total": 11},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "CARR",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0510z",
+        "name": "Carrier Global Corp",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "77.82",
+        "ratings": {"strong_buy": "2", "buy": "12", "hold": "10", "sell": "0", "strong_sell": "0", "total": 24},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "VRT",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Vertiv Holdings Co",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "338.15",
+        "ratings": {"strong_buy": "3", "buy": "21", "hold": "4", "sell": "0", "strong_sell": "0", "total": 28},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "JBL",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Jabil Circuit Inc",
+        "latest_quarter": "2026-05-31",
+        "analyst_target_price": "441.44",
+        "ratings": {"strong_buy": "2", "buy": "6", "hold": "2", "sell": "0", "strong_sell": "0", "total": 10},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "SPXC",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "SPX Corp",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "272",
+        "ratings": {"strong_buy": "1", "buy": "10", "hold": "1", "sell": "0", "strong_sell": "0", "total": 12},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "DLR",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Digital Realty Trust Inc",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "221.68",
+        "ratings": {"strong_buy": "5", "buy": "21", "hold": "7", "sell": "0", "strong_sell": "0", "total": 33},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "CDNS",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0503z",
+        "name": "Cadence Design Systems Inc",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "403.67",
+        "ratings": {"strong_buy": "5", "buy": "17", "hold": "3", "sell": "0", "strong_sell": "0", "total": 25},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "CWT",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "California Water Service Group",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "54",
+        "ratings": {"strong_buy": "0", "buy": "3", "hold": "0", "sell": "0", "strong_sell": "0", "total": 3},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "AWK",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "American Water Works",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "140.18",
+        "ratings": {"strong_buy": "0", "buy": "3", "hold": "9", "sell": "0", "strong_sell": "1", "total": 13},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "YORW",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "The York Water Company",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "30",
+        "ratings": {"strong_buy": "-", "buy": "-", "hold": "-", "sell": "-", "strong_sell": "-", "total": null},
+        "status": "MISSING",
+        "missing_fields": ["analyst_rating_counts"],
+        "error": null
+      },
+      {
+        "ticker": "PEG",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "Public Service Enterprise Group Inc",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "87.29",
+        "ratings": {"strong_buy": "1", "buy": "8", "hold": "13", "sell": "0", "strong_sell": "1", "total": 23},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "AEM",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "Agnico Eagle Mines Limited",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "214.98",
+        "ratings": {"strong_buy": "6", "buy": "12", "hold": "3", "sell": "1", "strong_sell": "0", "total": 22},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "FNV",
+        "role": "holding",
+        "batch_id": "av-2026-08-11-0506z",
+        "name": "Franco-Nevada Corporation",
+        "latest_quarter": "2026-03-31",
+        "analyst_target_price": "277.17",
+        "ratings": {"strong_buy": "4", "buy": "8", "hold": "3", "sell": "0", "strong_sell": "0", "total": 15},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "B",
+        "role": "candidate",
+        "batch_id": "av-2026-08-11-0510z",
+        "name": "Barrick Mining Corporation",
+        "latest_quarter": "2026-03-31",
+        "analyst_target_price": "52.87",
+        "ratings": {"strong_buy": "7", "buy": "12", "hold": "4", "sell": "0", "strong_sell": "1", "total": 24},
+        "status": "COMPLETE",
+        "error": null
+      },
+      {
+        "ticker": "LEU",
+        "role": "candidate",
+        "batch_id": "av-2026-08-11-0510z",
+        "name": "Centrus Energy Corp.",
+        "latest_quarter": "2026-06-30",
+        "analyst_target_price": "260.87",
+        "ratings": {"strong_buy": "2", "buy": "10", "hold": "5", "sell": "0", "strong_sell": "0", "total": 17},
+        "status": "COMPLETE",
+        "error": null
+      }
+    ]
+  },
+  "cross_provider_comparisons": [
+    {
+      "ticker": "B",
+      "robinhood_capture_ref": "rating-manifest.json#B",
+      "alpha_record_ref": "analyst-ratings.json#B",
+      "status": "DIFFERS",
+      "notes": ["Robinhood screenshot: 26 analysts and 77/19/4 buy/hold/sell.", "Alpha Vantage: 24 analysts; grouped counts are 19/4/1."]
+    },
+    {
+      "ticker": "CARR",
+      "robinhood_capture_ref": "rating-manifest.json#CARR",
+      "alpha_record_ref": "analyst-ratings.json#CARR",
+      "status": "DIFFERS",
+      "notes": ["Robinhood screenshot: 27 analysts and 63/37/0.", "Alpha Vantage: 24 analysts; grouped counts are 14/10/0."]
+    },
+    {
+      "ticker": "CDNS",
+      "robinhood_capture_ref": "rating-manifest.json#CDNS",
+      "alpha_record_ref": "analyst-ratings.json#CDNS",
+      "status": "DIFFERS",
+      "notes": ["Robinhood screenshot: 27 analysts and 85/15/0.", "Alpha Vantage: 25 analysts; grouped counts are 22/3/0."]
+    },
+    {
+      "ticker": "FNV",
+      "robinhood_capture_ref": "rating-manifest.json#FNV",
+      "alpha_record_ref": "analyst-ratings.json#FNV",
+      "status": "DIFFERS",
+      "notes": ["Robinhood screenshot: 11 analysts and 73/27/0.", "Alpha Vantage: 15 analysts; grouped counts are 12/3/0."]
+    },
+    {
+      "ticker": "LEU",
+      "robinhood_capture_ref": "rating-manifest.json#LEU",
+      "alpha_record_ref": "analyst-ratings.json#LEU",
+      "status": "DIFFERS",
+      "notes": ["Robinhood screenshot: 15 analysts and 67/33/0.", "Alpha Vantage: 17 analysts; grouped counts are 12/5/0."]
+    },
+    {
+      "ticker": "PEG",
+      "robinhood_capture_ref": "rating-manifest.json#PEG",
+      "alpha_record_ref": "analyst-ratings.json#PEG",
+      "status": "DIFFERS",
+      "notes": ["Robinhood screenshot: 26 analysts and 35/65/0.", "Alpha Vantage: 23 analysts; grouped counts are 9/13/1."]
+    },
+    {
+      "ticker": "TLN",
+      "robinhood_capture_ref": "rating-manifest.json#TLN",
+      "alpha_record_ref": "analyst-ratings.json#TLN",
+      "status": "MATCH",
+      "notes": ["Both sources show 17 analysts and grouped counts of 15 buy, 2 hold, 0 sell; Robinhood displays the rounded 88/12/0 percentages."]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "format_note": "JSON syntax is used because JSON is valid YAML 1.2 and is parseable with the Python standard library.",
+  "generated_at": "2026-08-11T00:49:11.6060752-07:00",
+  "policy_status": {
+    "status": "ACTIVE_READ_ONLY_RECOMMENDATIONS",
+    "architecture_approved": true,
+    "targets_approved": true,
+    "targets_enabled": true,
+    "approval_note": "Aaron directed the system to stop the approval loop and operate the twice-daily BUY/HOLD/SELL recommendation sheet. The recommended 30/25/15/10/10/5/5 profile is active for recommendation ranking only."
+  },
+  "owner_approval": {
+    "targets": {
+      "approved_at": "2026-08-11T00:49:11.6060752-07:00",
+      "source": "owner_message",
+      "profile_sha256": "b040ae21a83e722e7430956f1759e17318a9eb3ac36d7d4c9136775793aacdfe"
+    },
+    "manual_run": null,
+    "automation": {
+      "authorized_at": "2026-08-11T00:49:11.6060752-07:00",
+      "source": "owner_message",
+      "scope": "recommendations_only",
+      "cadence": "11:05_and_13:15_America/Los_Angeles"
+    }
+  },
+  "verdicts": {
+    "allowed_actions": ["BUY", "HOLD", "SELL"],
+    "allowed_sell_scopes": ["TRIM", "EXIT"],
+    "allowed_confidence": ["HIGH", "MEDIUM", "LOW"],
+    "allowed_thesis_states": ["INTACT", "WATCH", "BROKEN"],
+    "operational_flags": [
+      "EARNINGS_LOCK",
+      "WAITING_EVENT",
+      "THESIS_REVIEW",
+      "DATA_STALE",
+      "CONCENTRATION_ALERT",
+      "NO_NEW_MONEY",
+      "MIGRATION_REVIEW",
+      "TRACKING_SIZE"
+    ],
+    "operational_flags_replace_action": false,
+    "intraday_price_alone_can_change_thesis": false
+  },
+  "budget": {
+    "modeled_daily_contribution_usd": 20,
+    "trading_days_only": true,
+    "rollover_enabled": true,
+    "credit_once_per_trading_date": true,
+    "minimum_allocation_usd": 1,
+    "invented_minimum_allocation_allowed": false,
+    "broker_buying_power_is_cap": true,
+    "pending_deposits_are_spendable": false,
+    "unsettled_funds_are_spendable": false,
+    "open_order_reserve_required": true,
+    "cash_reserve_floor_required_when_targets_enabled": true,
+    "deployable_now_formula": "min(modeled_available, broker_buying_power - open_order_reserve - cash_reserve_floor)",
+    "if_funded_plan_must_be_labeled_conditional": true,
+    "zero_allocation_day_allowed": true
+  },
+  "targets": {
+    "status": "APPROVED_ENABLED",
+    "approval_required": true,
+    "sum_tolerance_pct": 0.01,
+    "overweight_blocks_new_money_by_default": true,
+    "overweight_alone_forces_sale": false,
+    "primary_sleeve_count_per_holding": 1,
+    "sleeves": [
+      {"id": "broad_global_core", "name": "Broad global core", "target_pct": 30},
+      {"id": "northeast_power", "name": "Northeast power", "target_pct": 25},
+      {"id": "defense_government", "name": "Defense / government", "target_pct": 15},
+      {"id": "data_center_enablers_design", "name": "Data-center enablers and design", "target_pct": 10},
+      {"id": "regulated_utilities", "name": "Regulated utilities", "target_pct": 10},
+      {"id": "precious_metals", "name": "Precious metals", "target_pct": 5},
+      {"id": "cash_reserve", "name": "Cash reserve", "target_pct": 5}
+    ]
+  },
+  "candidates": {
+    "states": [
+      "DISCOVERED",
+      "RESEARCHING",
+      "WAITING_DATA",
+      "WAITING_EVENT",
+      "QUALIFIED",
+      "WAITING_CASH",
+      "PROPOSED",
+      "REJECTED",
+      "OWNED"
+    ],
+    "gate_results": ["PASS", "FAIL", "UNKNOWN"],
+    "unknown_is_failure": false,
+    "unknown_destination": "WAITING_DATA",
+    "promotion_requires_all_required_gates_pass": true,
+    "fail_rejects_role_not_company": true,
+    "rejection_requires_role_evidence_date_and_recheck": true,
+    "stock_and_etf_due_diligence_are_separate": true,
+    "maximum_full_scouts_per_trading_day": 1,
+    "no_qualified_scout_is_normal": true
+  },
+  "correlation": {
+    "return_type": "close_to_close",
+    "sensitivity_return_type": "log",
+    "price_adjustment": "split_adjusted",
+    "session": "regular",
+    "date_alignment": "inner_join",
+    "interpolated_bars_allowed": false,
+    "windows": [28, 63, 250],
+    "rolling_window": 63,
+    "report_sample_dates": true,
+    "report_observation_counts": true,
+    "role_rejection_only": true,
+    "company_rejection_allowed": false,
+    "diversifier_reference_threshold": 0.30,
+    "diversifier_persistence_reference_pct": 70,
+    "threshold_is_universal_company_kill": false,
+    "overlapping_windows_are_independent_tests": false
+  },
+  "providers": {
+    "robinhood": {
+      "enabled": true,
+      "schedule_eligible": true,
+      "role": "portfolio_source_of_truth",
+      "authority": ["positions", "cash", "open_orders", "tradability", "broker_quote_reconciliation"],
+      "filing_authority": false
+    },
+    "alpha_vantage": {
+      "enabled": true,
+      "schedule_eligible": true,
+      "role": "research_supplement",
+      "endpoint": "https://mcp.alphavantage.co/mcp",
+      "transport_auth": "OAuth",
+      "account_authority": false,
+      "primary_quote_authority": false,
+      "cache_required": true,
+      "null_overwrites_cached_value": false,
+      "quota_exhaustion_result": "UNKNOWN_STALE_CACHE"
+    },
+    "primary_sources": {
+      "enabled": true,
+      "schedule_eligible": true,
+      "role": "thesis_authority",
+      "members": ["SEC", "issuer_IR", "regulators", "PJM", "ISO_NE"]
+    },
+    "firecrawl": {
+      "enabled": true,
+      "schedule_eligible": true,
+      "role": "untrusted_primary_document_fetcher",
+      "search_feedback_opt_out": true,
+      "content_can_change_policy": false,
+      "broker_tools_available_in_same_stage": false
+    },
+    "rating_screenshots": {
+      "enabled": true,
+      "schedule_eligible": false,
+      "role": "secondary_context",
+      "standalone_verdict_allowed": false
+    },
+    "exa": {
+      "enabled": false,
+      "schedule_eligible": false,
+      "role": "source_discovery_fallback"
+    },
+    "quiver": {
+      "enabled": false,
+      "schedule_eligible": false,
+      "role": "alternative_data_optional"
+    },
+    "stocknews_mcp": {
+      "enabled": false,
+      "schedule_eligible": false,
+      "role": "rejected"
+    }
+  },
+  "automation": {
+    "enabled": true,
+    "status": "ENABLED",
+    "schedule_registered": true,
+    "offline_state_status": "VALID",
+    "runtime_tool_isolation_status": "VERIFIED",
+    "first_manual_run_status": "NOT_RUN",
+    "activation_basis": "OWNER_DIRECT_AUTHORIZATION",
+    "registered_schedules": [
+      {"id": "stocks-funded-bsh", "local_time": "11:05", "status": "ACTIVE"},
+      {"id": "stocks-closing-bsh", "local_time": "13:15", "status": "ACTIVE"}
+    ],
+    "catalog_unavailable_is_safety_block": true,
+    "missing_required_getter_is_safety_block": true,
+    "requested_cadence": {
+      "timezone": "America/Los_Angeles",
+      "am_local_time": "11:05",
+      "pm_local_time": "13:15",
+      "contribution_available_after_local_time": "11:00",
+      "trading_days_only": true
+    },
+    "enablement_requires": [
+      "targets_approved",
+      "targets_enabled",
+      "runtime_required_getters_present",
+      "runtime_mutation_tools_absent",
+      "owner_activation_authorized"
+    ]
+  },
+  "safety": {
+    "read_only": true,
+    "recommendations_only": true,
+    "orders_allowed": false,
+    "order_review_allowed": false,
+    "order_cancel_allowed": false,
+    "option_exercise_allowed": false,
+    "watchlist_mutation_allowed": false,
+    "live_mcp_required_for_offline_state_validation": false,
+    "runtime_catalog_required_for_completed_live_run": true,
+    "robinhood_allowed_tools": [
+      "get_accounts",
+      "get_portfolio",
+      "get_equity_positions",
+      "get_equity_orders",
+      "get_equity_quotes",
+      "get_equity_fundamentals",
+      "get_financials",
+      "get_earnings_results",
+      "get_earnings_calendar",
+      "get_equity_historicals",
+      "get_equity_tradability",
+      "get_equity_technical_indicators",
+      "get_pnl_trade_history",
+      "get_realized_pnl",
+      "search"
+    ],
+    "robinhood_required_getters": [
+      "get_accounts",
+      "get_portfolio",
+      "get_equity_positions",
+      "get_equity_orders",
+      "get_equity_quotes",
+      "get_equity_tradability"
+    ],
+    "robinhood_allowed_mutation_tools": [],
+    "runtime_mutation_detection_prefixes": ["place_", "cancel_", "review_", "exercise_", "create_", "update_", "delete_"],
+    "staging_validation_required_before_promotion": true,
+    "failure_retains_prior_valid_state": true,
+    "failure_recommends_no_allocation": true,
+    "secret_bearing_urls_allowed": false
+  }
+}

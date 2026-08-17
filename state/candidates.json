@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T03:39:16.3173574-07:00",
+  "status": "GROWTH_RERANKED_NVDA_WAITING_DATA",
+  "daily_full_scout_limit": 1,
+  "scout_completed_for_dates": [],
+  "candidates": [
+    {
+      "ticker": "VT",
+      "name": "Vanguard Total World Stock ETF",
+      "asset_type": "ETF",
+      "intended_role": "CORE",
+      "primary_sleeve": "broad_global_core",
+      "state": "OWNED",
+      "gates": [
+        {
+          "id": "ETF_INDEX",
+          "result": "PASS",
+          "evidence": "Vanguard states that VT tracks the FTSE Global All Cap Index across developed and emerging markets, covering more than 98% of global investable market capitalization."
+        },
+        {
+          "id": "ETF_COST",
+          "result": "PASS",
+          "evidence": "Vanguard's 2026-06-30 factsheet reports a 0.06% expense ratio."
+        },
+        {
+          "id": "ETF_DIVERSIFICATION",
+          "result": "PASS",
+          "evidence": "Vanguard reports 10,048 fund stocks, 61.9% United States exposure, and 21.7% in the ten largest holdings as of 2026-06-30."
+        },
+        {
+          "id": "ETF_LIQUIDITY",
+          "result": "PASS",
+          "evidence": "Vanguard reports $77.627B in ETF net assets and NYSE Arca listing as of 2026-06-30."
+        },
+        {
+          "id": "ETF_OVERLAP",
+          "result": "PASS",
+          "evidence": "High SPY correlation is expected for a CORE role and is not a company kill."
+        }
+      ],
+      "blockers": [
+        "No research blocker; additional allocation is deprioritized because the core sleeve is now near target and broker cash is zero."
+      ],
+      "recheck_condition": "After a material Vanguard index, fee, liquidity, or portfolio-allocation change.",
+      "evidence_ids": [
+        "legacy-bench-2026-08-10",
+        "vanguard-vt-factsheet-2026-06-30",
+        "robinhood-preopen-reconciliation-2026-08-11-0057",
+        "robinhood-funded-reconciliation-2026-08-11-1113",
+        "robinhood-funded-reconciliation-2026-08-13-1108"
+      ],
+      "confidence": "MEDIUM"
+    },
+    {
+      "ticker": "B",
+      "name": "Barrick Mining Corporation",
+      "asset_type": "STOCK",
+      "intended_role": "THEME",
+      "primary_sleeve": "precious_metals",
+      "state": "WAITING_DATA",
+      "gates": [
+        {
+          "id": "G1",
+          "result": "PASS",
+          "evidence": "Ticker and company identity verified."
+        },
+        {
+          "id": "G2",
+          "result": "PASS",
+          "evidence": "Gold and copper producer role verified."
+        },
+        {
+          "id": "G3",
+          "result": "PASS",
+          "evidence": "Valuation was screened; refresh at next decision time."
+        },
+        {
+          "id": "G4",
+          "result": "PASS",
+          "evidence": "Operating scale is established."
+        },
+        {
+          "id": "G5",
+          "result": "PASS",
+          "evidence": "Current profitability is established."
+        },
+        {
+          "id": "G6",
+          "result": "PASS",
+          "evidence": "Mark Hill is the permanent parent-company CEO as of 2026-08-10."
+        },
+        {
+          "id": "G7",
+          "result": "PASS",
+          "evidence": "Revenue and Q2 financials are visible in company filings."
+        },
+        {
+          "id": "G8",
+          "result": "PASS",
+          "evidence": "High gold-factor correlation is accepted for a THEME role and consumes metals-sleeve capacity."
+        },
+        {
+          "id": "G9",
+          "result": "UNKNOWN",
+          "evidence": "FNV's scheduled Q2 event has passed, but the current primary result package was not available in the retrieved official IR pages; the metals-sleeve comparison remains incomplete."
+        }
+      ],
+      "blockers": [
+        "Retrieve and review FNV's current primary Q2 package before comparing Barrick with the owned metals holdings."
+      ],
+      "recheck_condition": "When the FNV Q2 2026 primary result package is available and reviewed.",
+      "evidence_ids": [
+        "barrick-governance-2026-08-10",
+        "barrick-q2-2026",
+        "av-overview-B-2026-08-11",
+        "rating-image-B",
+        "fnv-q2-2026-event-status"
+      ],
+      "confidence": "LOW"
+    },
+    {
+      "ticker": "LEU",
+      "name": "Centrus Energy Corp.",
+      "asset_type": "STOCK",
+      "intended_role": "THEME",
+      "primary_sleeve": null,
+      "state": "WAITING_DATA",
+      "gates": [
+        {
+          "id": "G1",
+          "result": "PASS",
+          "evidence": "Ticker and company identity verified."
+        },
+        {
+          "id": "G2",
+          "result": "PASS",
+          "evidence": "Nuclear fuel and HALEU role identified."
+        },
+        {
+          "id": "G3",
+          "result": "UNKNOWN",
+          "evidence": "Valuation requires a current refresh."
+        },
+        {
+          "id": "G4",
+          "result": "PASS",
+          "evidence": "Operating scale was screened."
+        },
+        {
+          "id": "G5",
+          "result": "PASS",
+          "evidence": "Recent quarters were profitable in the prior screen."
+        },
+        {
+          "id": "G6",
+          "result": "UNKNOWN",
+          "evidence": "Permanent CEO status has not been independently verified."
+        },
+        {
+          "id": "G7",
+          "result": "PASS",
+          "evidence": "Revenue trend was visible, with margin compression requiring review."
+        },
+        {
+          "id": "G8",
+          "result": "PASS",
+          "evidence": "LEU/GEV is 0.43 over 250 returns; acceptable only as a correlated THEME role, not a diversifier."
+        },
+        {
+          "id": "G9",
+          "result": "PASS",
+          "evidence": "No near-term earnings lock was identified in the prior screen."
+        }
+      ],
+      "blockers": [
+        "Verify CEO permanence and the current margin/cash-flow thesis from primary filings.",
+        "Resolve the primary sleeve and capacity under an approved target policy."
+      ],
+      "recheck_condition": "After primary-source leadership and financial review.",
+      "evidence_ids": [
+        "av-overview-LEU-2026-08-11",
+        "rating-image-LEU",
+        "correlation-audit-2026-08-10"
+      ],
+      "confidence": "LOW"
+    },
+    {
+      "ticker": "TEM",
+      "name": "Tempus AI",
+      "asset_type": "STOCK",
+      "intended_role": "DIVERSIFIER",
+      "primary_sleeve": null,
+      "state": "WAITING_DATA",
+      "gates": [
+        {
+          "id": "G8",
+          "result": "PASS",
+          "evidence": "TEM/GEV was 0.194 over 250 returns in the corrected screen."
+        },
+        {
+          "id": "G5",
+          "result": "UNKNOWN",
+          "evidence": "Profitability was not completed."
+        },
+        {
+          "id": "G7",
+          "result": "UNKNOWN",
+          "evidence": "Revenue trend was not completed."
+        }
+      ],
+      "blockers": [
+        "Run the full stock due-diligence path; correlation alone cannot qualify it."
+      ],
+      "recheck_condition": "After all required business, leadership, financial, valuation, and event gates are sourced.",
+      "evidence_ids": [
+        "correlation-audit-2026-08-10"
+      ],
+      "confidence": "LOW"
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "asset_type": "STOCK",
+      "intended_role": "THEME",
+      "primary_sleeve": "data_center_enablers_design",
+      "state": "WAITING_DATA",
+      "gates": [
+        {
+          "id": "G1",
+          "result": "PASS",
+          "evidence": "Ticker and company identity are verified in NVIDIA's SEC and investor-relations records."
+        },
+        {
+          "id": "G2",
+          "result": "PASS",
+          "evidence": "GPU, accelerated-computing, networking, and data-center platform exposure fits a data-center-enabler THEME role."
+        },
+        {
+          "id": "G3",
+          "result": "UNKNOWN",
+          "evidence": "Trailing price/earnings is distorted by unusually large investment gains, while the quoted forward P/E, PEG, analyst counts, and target upside lack a current reproducible provider record."
+        },
+        {
+          "id": "G4",
+          "result": "PASS",
+          "evidence": "NVIDIA reported $81.615B of Q1 fiscal 2027 revenue and $75.2B of Data Center revenue."
+        },
+        {
+          "id": "G5",
+          "result": "PASS",
+          "evidence": "Q1 fiscal 2027 GAAP operating income was $53.536B and free cash flow was $48.554B; the 71.5% GAAP net margin is not used as the quality metric because it included large investment gains."
+        },
+        {
+          "id": "G6",
+          "result": "PASS",
+          "evidence": "Jensen Huang is the current founder, president, and chief executive officer."
+        },
+        {
+          "id": "G7",
+          "result": "PASS",
+          "evidence": "Quarterly revenue rose from $44.062B in Q1 fiscal 2026 to $81.615B in Q1 fiscal 2027, an 85% year-over-year increase."
+        },
+        {
+          "id": "G8",
+          "result": "PASS",
+          "evidence": "The proposed role is a correlated data-center-enabler THEME, not a diversifier; concentration and downside amplification remain allocation risks and consume enablers-sleeve capacity."
+        },
+        {
+          "id": "G9",
+          "result": "PASS",
+          "evidence": "NVIDIA's next results are scheduled for 2026-08-26, eight trading sessions after 2026-08-14 and outside the five-session event lock today."
+        }
+      ],
+      "blockers": [
+        "Record a fresh dated provider result for forward valuation and provider-specific analyst context.",
+        "Recheck the five-session earnings lock before any later allocation.",
+        "Resolve allocation capacity: after a hypothetical $30 deposit, the enablers sleeve has only about $1.83 of target room before live-price changes."
+      ],
+      "recheck_condition": "After a reproducible provider valuation refresh and again before NVIDIA's 2026-08-26 earnings event.",
+      "evidence_ids": [
+        "nvda-q1-fy27-primary-2026-08-14",
+        "nvda-next-earnings-primary-2026-08-14"
+      ],
+      "confidence": "MEDIUM"
+    },
+    {
+      "ticker": "ASPN",
+      "name": "Aspen Aerogels",
+      "asset_type": "STOCK",
+      "intended_role": "DIVERSIFIER",
+      "primary_sleeve": null,
+      "state": "REJECTED",
+      "gates": [
+        {
+          "id": "G5",
+          "result": "FAIL",
+          "evidence": "ASPN reported GAAP net losses in each verified comparison quarter; Q4 2025 also had a $22.929M gross loss."
+        },
+        {
+          "id": "G7",
+          "result": "FAIL",
+          "evidence": "Q2 2026 revenue fell 36.11% year over year and gross margin fell from 32.45% to 6.55%; Q1 2026 revenue fell 51.88% year over year."
+        }
+      ],
+      "blockers": [
+        "The current financial-quality and revenue-trajectory evidence does not clear the proposed DIVERSIFIER role."
+      ],
+      "recheck_condition": "Recheck after sustained revenue recovery, normalized positive gross margin, and materially improved GAAP loss/cash-flow evidence.",
+      "evidence_ids": [
+        "aspn-financials-2026-08-11"
+      ],
+      "confidence": "HIGH"
+    },
+    {
+      "ticker": "UEC",
+      "name": "Uranium Energy Corp.",
+      "asset_type": "STOCK",
+      "intended_role": "THEME",
+      "primary_sleeve": null,
+      "state": "REJECTED",
+      "gates": [
+        {
+          "id": "G5",
+          "result": "FAIL",
+          "evidence": "UEC reported a GAAP net loss in each of the six verified fiscal quarters; the latest loss was $52.344M on zero revenue."
+        },
+        {
+          "id": "G7",
+          "result": "FAIL",
+          "evidence": "Four of six verified quarters had zero revenue; the two revenue quarters came from purchased-uranium inventory sales rather than recurring production sales."
+        }
+      ],
+      "blockers": [
+        "The current revenue continuity and financial-sustainability evidence does not clear the proposed THEME allocation role."
+      ],
+      "recheck_condition": "Recheck after recurring operating-production sales emerge and loss/cash-flow sustainability materially improves.",
+      "evidence_ids": [
+        "uec-financials-2026-08-11"
+      ],
+      "confidence": "HIGH"
+    }
+  ],
+  "legacy_rejections": {
+    "source": "SYSTEM/archive/claude-stocks-daily-v0 and pre-migration BENCH.md",
+    "migrated_as_canonical": false,
+    "reason": "Role, evidence date, and recheck conditions must be normalized before legacy rejections become canonical."
+  }
+}

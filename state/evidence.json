@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-14T03:39:16.3173574-07:00",
+  "records": [
+    {
+      "id": "rh-positions-2026-08-10",
+      "source": "Robinhood get_equity_positions",
+      "retrieval_completed_at": "2026-08-10T22:22:55.6275673-07:00",
+      "effective_date": "2026-08-10",
+      "status": "COMPLETE",
+      "facts": {
+        "holding_count": 22,
+        "position_type": "long",
+        "intraday_position_changes": false
+      }
+    },
+    {
+      "id": "rh-account-2026-08-10",
+      "source": "Robinhood get_accounts and get_portfolio",
+      "retrieval_completed_at": "2026-08-10T22:22:55.6275673-07:00",
+      "effective_date": "2026-08-10",
+      "status": "COMPLETE",
+      "facts": {
+        "account_type": "cash",
+        "cash": "7.00",
+        "buying_power": "7.00",
+        "pending_deposits": "0.00",
+        "unsettled_funds": "0.00",
+        "live_total_value": "137.65563060"
+      }
+    },
+    {
+      "id": "rh-open-orders-2026-08-10",
+      "source": "Robinhood get_equity_orders",
+      "retrieval_completed_at": "2026-08-10T22:22:55.6275673-07:00",
+      "effective_date": "2026-08-10",
+      "status": "COMPLETE",
+      "facts": {
+        "new": 0,
+        "queued": 0,
+        "confirmed": 0,
+        "unconfirmed": 0,
+        "partially_filled": 0,
+        "reserve": "0.00"
+      }
+    },
+    {
+      "id": "rh-close-2026-08-10",
+      "source": "Robinhood get_equity_quotes results[].close",
+      "retrieval_completed_at": "2026-08-10T22:22:55.6275673-07:00",
+      "effective_date": "2026-08-10",
+      "status": "COMPLETE",
+      "facts": {
+        "holding_count": 22,
+        "interpolated_count": 0,
+        "source": "sip-list-exchange-close",
+        "official_close_equity_value": "130.59940816"
+      }
+    },
+    {
+      "id": "alpha-overview-snapshot-2026-08-11",
+      "source": "Alpha Vantage official MCP COMPANY_OVERVIEW",
+      "retrieval_completed_at": "2026-08-11T05:10:39.650106Z",
+      "effective_date": "2026-08-10",
+      "status": "COMPLETE_WITH_MISSING_FIELDS",
+      "facts": {
+        "holding_records": 22,
+        "candidate_records": 2,
+        "missing_rating_counts": [
+          "YORW"
+        ],
+        "record_path": "SYSTEM/state/analyst-ratings.json"
+      }
+    },
+    {
+      "id": "rating-images-2026-08-10",
+      "source": "User-provided Robinhood screenshots",
+      "retrieval_completed_at": "2026-08-10T20:30:00-07:00",
+      "effective_date": "2026-08-10",
+      "status": "COMPLETE",
+      "facts": {
+        "ticker_count": 7,
+        "record_path": "SYSTEM/state/rating-manifest.json",
+        "standalone_verdict_allowed": false
+      }
+    },
+    {
+      "id": "barrick-governance-2026-08-10",
+      "source": "Barrick 2026 management information circular and company releases",
+      "retrieval_completed_at": null,
+      "retrieval_time_status": "NOT_RECORDED_DURING_PRIOR_AUDIT",
+      "effective_date": "2026-08-10",
+      "status": "VERIFIED",
+      "facts": {
+        "current_parent_ceo": "Mark Hill",
+        "interim": false,
+        "north_american_barrick_future_role_watch": true
+      },
+      "urls": [
+        "https://www.sec.gov/Archives/edgar/data/756894/000119312526148005/d858698dex991.htm",
+        "https://www.barrick.com/English/news/news-details/2026/barrick-announces-board-appointments/default.aspx"
+      ]
+    },
+    {
+      "id": "barrick-q2-2026",
+      "source": "Barrick Q2 2026 results and MD&A",
+      "retrieval_completed_at": null,
+      "retrieval_time_status": "NOT_RECORDED_DURING_PRIOR_AUDIT",
+      "effective_date": "2026-06-30",
+      "status": "VERIFIED_WITH_TIMING_CAVEAT",
+      "facts": {
+        "newmont_top_up_agreed": "1950000000",
+        "newmont_top_up_received_in_q2": false,
+        "share_repurchase_cash": "1209000000",
+        "net_cash": "1245000000",
+        "gold_aisc_per_oz": "1866",
+        "attributable_free_cash_flow": "141000000"
+      },
+      "urls": [
+        "https://www.barrick.com/English/news/news-details/2026/q2-2026-results/default.aspx"
+      ]
+    },
+    {
+      "id": "aspn-financials-2026-08-11",
+      "source": "Aspen Aerogels SEC Forms 10-Q and issuer FY2025 results",
+      "retrieval_completed_at": "2026-08-11T06:19:55.7861225Z",
+      "effective_date": "2026-06-30",
+      "status": "VERIFIED_WITH_PERIOD_CORRECTION",
+      "facts": {
+        "q2_2026_revenue": "49849000",
+        "q2_2025_revenue": "78024000",
+        "q2_revenue_yoy_pct": "-36.11",
+        "q2_2026_gross_margin_pct": "6.55",
+        "q2_2025_gross_margin_pct": "32.45",
+        "q1_2026_revenue_yoy_pct": "-51.88",
+        "q4_2025_gross_profit": "-22929000",
+        "period_mixing_in_prior_summary": true
+      },
+      "urls": [
+        "https://www.sec.gov/Archives/edgar/data/1145986/000119312526340275/aspn-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/1145986/000119312526214672/aspn-20260331.htm",
+        "https://www.globenewswire.com/news-release/2026/02/25/3244410/0/en/aspen-aerogels-inc-reports-fourth-quarter-and-full-year-2025-financial-results-and-recent-business-highlights.html",
+        "https://www.globenewswire.com/news-release/2025/08/07/3129016/0/en/aspen-aerogels-inc-reports-second-quarter-2025-financial-results-and-recent-business-highlights.html"
+      ]
+    },
+    {
+      "id": "uec-financials-2026-08-11",
+      "source": "Uranium Energy Corp. SEC Forms 10-Q and 10-K",
+      "retrieval_completed_at": "2026-08-11T06:19:55.7861225Z",
+      "effective_date": "2026-04-30",
+      "status": "VERIFIED",
+      "facts": {
+        "six_quarter_revenue_newest_to_oldest": [
+          "0",
+          "20200000",
+          "0",
+          "0",
+          "0",
+          "49750000"
+        ],
+        "zero_revenue_quarters": 4,
+        "loss_quarters": 6,
+        "latest_net_loss": "-52344000",
+        "revenue_quarters_source": "purchased_uranium_inventory_sales",
+        "recurring_production_sales_established": false
+      },
+      "urls": [
+        "https://www.sec.gov/Archives/edgar/data/1334933/000143774926019889/uec20260430_10q.htm",
+        "https://www.sec.gov/Archives/edgar/data/1334933/000143774926007413/uec20260131c_10q.htm",
+        "https://www.sec.gov/Archives/edgar/data/1334933/000143774925037296/uec20251031_10q.htm",
+        "https://www.sec.gov/Archives/edgar/data/1334933/000143774925029761/uec20250731_10k.htm"
+      ]
+    },
+    {
+      "id": "cdns-insider-q2-2026",
+      "source": "Cadence Design Systems SEC Forms 4 and 4/A",
+      "retrieval_completed_at": "2026-08-11T06:19:55.7861225Z",
+      "effective_date": "2026-06-30",
+      "status": "VERIFIED_WITH_CLASSIFICATION_CAVEAT",
+      "facts": {
+        "acquisition_rows": 18,
+        "acquisition_reported_price_notional": "6644752.3500",
+        "disposal_rows": 65,
+        "disposal_reported_price_notional": "71842915.8006",
+        "gross_reported_value_difference": "65198163.4506",
+        "ten_b5_1_sale_rows": 52,
+        "ten_b5_1_sale_notional": "70599712.1406",
+        "tax_withholding_rows": 4,
+        "gift_or_transfer_rows": 3,
+        "zero_value_derivative_disposition_rows": 6,
+        "devgan_sale_rows": 3,
+        "devgan_ten_b5_1_sale_notional": "50044955.0000",
+        "net_selling_label_supported": false
+      },
+      "urls": [
+        "https://www.sec.gov/Archives/edgar/data/813672/",
+        "https://www.sec.gov/Archives/edgar/data/813672/000081367226000071/xslF345X03/wk-form4_1779919717.xml",
+        "https://www.sec.gov/Archives/edgar/data/813672/000081367226000077/xslF345X03/wk-form4_1780529197.xml"
+      ]
+    },
+    {
+      "id": "peg-regulatory-guidance-load-2026-08-11",
+      "source": "PSEG SEC filings, New Jersey enacted legislation, Governor release, and PJM load forecast",
+      "retrieval_completed_at": "2026-08-11T06:49:07.5387290Z",
+      "effective_date": "2026-08-10",
+      "status": "VERIFIED_WITH_CAUSATION_AND_IMPLEMENTATION_CAVEATS",
+      "facts": {
+        "ferc_roe_adder_basis_points": 50,
+        "ferc_roe_adder_currently_earned": true,
+        "mandatory_rto_membership_effective_date": "2027-01-01",
+        "possible_future_annual_net_income_and_cash_reduction": "40000000",
+        "future_adder_loss_certain": false,
+        "data_center_tariff_standards_required": true,
+        "data_center_tariff_implementation_resolved": false,
+        "q2_2026_adjusted_eps": "0.86",
+        "h1_2026_adjusted_eps": "2.41",
+        "fy_2026_adjusted_eps_guidance_low": "4.28",
+        "fy_2026_adjusted_eps_guidance_high": "4.40",
+        "long_term_adjusted_earnings_growth_low_pct": "6",
+        "long_term_adjusted_earnings_growth_high_pct": "8",
+        "pjm_ps_zone_data_center_adjustment_present": true,
+        "pjm_ps_zone_summer_peak_cagr_pct": "2.4",
+        "pjm_ps_zone_winter_peak_cagr_pct": "3.9",
+        "price_weakness_causation_proven": false,
+        "supported_action": "HOLD_MONITOR"
+      },
+      "urls": [
+        "https://www.sec.gov/Archives/edgar/data/788784/000119312526332943/peg-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/788784/000119312526331660/d101695dex99.htm",
+        "https://www.nj.gov/governor/news/2026/approved/20260707a.shtml",
+        "https://pub.njleg.state.nj.us/Bills/2026/A1000/796_R4.PDF",
+        "https://www.pjm.com/-/media/DotCom/library/reports-notices/load-forecast/2026-load-report.pdf",
+        "https://www.pjm.com/-/media/DotCom/committees-groups/subcommittees/las/2025/20250916/20250916-item-04m---pseg-large-load-request.pdf"
+      ]
+    },
+    {
+      "id": "codex-robinhood-runtime-isolation-2026-08-11",
+      "source": "Codex app-server mcpServerStatus/list inventory",
+      "retrieval_completed_at": "2026-08-11T06:28:02.2056862Z",
+      "effective_date": "2026-08-10",
+      "status": "VERIFIED",
+      "facts": {
+        "strict_config": true,
+        "working_directory": "C:/Users/aaron/Desktop/Stocks",
+        "tool_count": 15,
+        "get_portfolio_present": true,
+        "place_equity_order_present": false,
+        "allowed_tools": [
+          "get_accounts",
+          "get_earnings_calendar",
+          "get_earnings_results",
+          "get_equity_fundamentals",
+          "get_equity_historicals",
+          "get_equity_orders",
+          "get_equity_positions",
+          "get_equity_quotes",
+          "get_equity_technical_indicators",
+          "get_equity_tradability",
+          "get_financials",
+          "get_pnl_trade_history",
+          "get_portfolio",
+          "get_realized_pnl",
+          "search"
+        ],
+        "broker_tool_call_made": false
+      }
+    },
+    {
+      "id": "robinhood-live-dry-run-2026-08-11",
+      "source": "Robinhood read-only reconciliation getters via Codex app-server",
+      "retrieval_completed_at": "2026-08-11T06:28:02.2056862Z",
+      "effective_date": "2026-08-10",
+      "status": "COMPLETE",
+      "facts": {
+        "purpose": "RUNTIME_ISOLATION_SMOKE_TEST",
+        "full_portfolio_recommendation_run": false,
+        "satisfies_first_manual_run_review_gate": false,
+        "required_getters_succeeded": 6,
+        "required_getters_total": 6,
+        "holding_count": 22,
+        "open_order_count": 0,
+        "quote_count": 22,
+        "official_close_count": 22,
+        "official_close_date": "2026-08-10",
+        "official_close_equity_value": "130.59940816",
+        "official_close_total_value": "137.59940816",
+        "tradability_count": 22,
+        "untradable_or_inactive_count": 0,
+        "cash": "7.00",
+        "buying_power": "7.00",
+        "pending_deposits": "0.00",
+        "unsettled_funds": "0.00",
+        "mutation_tool_called": false
+      }
+    },
+    {
+      "id": "vanguard-vt-factsheet-2026-06-30",
+      "source": "Vanguard Total World Stock ETF official profile and factsheet",
+      "retrieval_completed_at": "2026-08-11T00:52:20.6294941-07:00",
+      "effective_date": "2026-06-30",
+      "status": "VERIFIED",
+      "facts": {
+        "ticker": "VT",
+        "benchmark": "FTSE Global All Cap Index",
+        "expense_ratio_pct": "0.06",
+        "fund_stock_count": 10048,
+        "benchmark_approximate_holding_count": 8000,
+        "benchmark_country_count_more_than": 47,
+        "global_investable_market_cap_coverage_more_than_pct": 98,
+        "us_weight_pct": "61.9",
+        "top_ten_weight_pct": "21.7",
+        "etf_net_assets_usd_millions": 77627,
+        "exchange": "NYSE Arca",
+        "minimum_investment_usd": "1.00"
+      },
+      "urls": [
+        "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+        "https://fund-docs.vanguard.com/F3141.pdf"
+      ]
+    },
+    {
+      "id": "robinhood-preopen-reconciliation-2026-08-11-0057",
+      "source": "Robinhood read-only getters via strict-config Codex app-server",
+      "retrieval_completed_at": "2026-08-11T00:57:07.2310000-07:00",
+      "effective_date": "2026-08-10",
+      "status": "RUNTIME_CATALOG_LIVE_READ",
+      "facts": {
+        "purpose": "PREOPEN_SHEET_AND_AUTOMATION_ACTIVATION_CHECK",
+        "catalog_observed_at": "2026-08-11T00:57:03.8830000-07:00",
+        "strict_config": true,
+        "tool_count": 15,
+        "allowed_tools": [
+          "get_accounts",
+          "get_earnings_calendar",
+          "get_earnings_results",
+          "get_equity_fundamentals",
+          "get_equity_historicals",
+          "get_equity_orders",
+          "get_equity_positions",
+          "get_equity_quotes",
+          "get_equity_technical_indicators",
+          "get_equity_tradability",
+          "get_financials",
+          "get_pnl_trade_history",
+          "get_portfolio",
+          "get_realized_pnl",
+          "search"
+        ],
+        "required_getters_succeeded": 6,
+        "required_getters_total": 6,
+        "mutation_tool_visible": false,
+        "mutation_tool_called": false,
+        "holding_count": 22,
+        "position_set_and_quantities_match": true,
+        "open_order_count": 0,
+        "quote_count": 22,
+        "official_close_count": 22,
+        "tradability_count": 22,
+        "untradable_or_nonfractional_count": 0,
+        "cash": "7.00",
+        "buying_power": "7.00",
+        "pending_deposits": "0.00",
+        "unsettled_funds": "0.00",
+        "open_order_reserve": "0.00",
+        "official_close_equity_value": "130.59940816",
+        "official_close_total_value": "137.59940816",
+        "broker_live_total_value_at_retrieval": "137.28963729",
+        "vt_official_close": "160.97",
+        "vt_active_tradable_fractional": true,
+        "expected_daily_cash_arrived": false
+      }
+    },
+    {
+      "id": "robinhood-funded-reconciliation-2026-08-11-1113",
+      "source": "Fresh strict-config Codex app-server catalog plus Robinhood read-only getters",
+      "retrieval_completed_at": "2026-08-11T11:13:10.0746072-07:00",
+      "effective_date": "2026-08-11",
+      "status": "VERIFIED",
+      "proof_type": "RUNTIME_CATALOG_LIVE_READ",
+      "facts": {
+        "run_key": "2026-08-11-am",
+        "observed_at": "2026-08-11T11:13:10.0746072-07:00",
+        "strict_config": true,
+        "working_directory": "C:/Users/aaron/Desktop/Stocks",
+        "tool_count": 15,
+        "allowed_tools": [
+          "get_accounts",
+          "get_earnings_calendar",
+          "get_earnings_results",
+          "get_equity_fundamentals",
+          "get_equity_historicals",
+          "get_equity_orders",
+          "get_equity_positions",
+          "get_equity_quotes",
+          "get_equity_technical_indicators",
+          "get_equity_tradability",
+          "get_financials",
+          "get_pnl_trade_history",
+          "get_portfolio",
+          "get_realized_pnl",
+          "search"
+        ],
+        "mutation_tools_present": [],
+        "required_getters": [
+          "get_accounts",
+          "get_portfolio",
+          "get_equity_positions",
+          "get_equity_orders",
+          "get_equity_quotes",
+          "get_equity_tradability"
+        ],
+        "required_getters_succeeded": 6,
+        "required_getters_total": 6,
+        "mutation_tool_called": false,
+        "position_count": 23,
+        "quote_count": 23,
+        "official_close_count": 23,
+        "tradability_count": 23,
+        "open_order_count": 0,
+        "open_orders_reconciled": true,
+        "open_order_issue": false,
+        "cash": "20.00",
+        "buying_power": "20.00",
+        "pending_deposits": "0.00",
+        "unsettled_funds": "0.00",
+        "open_order_reserve": "0.00",
+        "official_close_equity_value": "137.57858445",
+        "official_close_total_value": "157.57858445",
+        "broker_live_total_value_at_retrieval": "158.70364554",
+        "expected_daily_cash_arrived": true,
+        "position_change": "User-placed $7 VT buy filled before this run; automation made no trade."
+      }
+    },
+    {
+      "id": "nyse-market-open-2026-08-11",
+      "source": "NYSE Holidays & Trading Hours",
+      "retrieval_completed_at": "2026-08-11T11:13:10.0746072-07:00",
+      "effective_date": "2026-08-11",
+      "status": "VERIFIED",
+      "facts": {
+        "trading_date": "2026-08-11",
+        "market_status": "OPEN",
+        "holiday": false,
+        "core_session_eastern": "09:30-16:00",
+        "verification_time_pacific": "2026-08-11T11:13:10.0746072-07:00"
+      },
+      "urls": [
+        "https://www.nyse.com/trade/hours-calendars"
+      ]
+    },
+    {
+      "id": "robinhood-funded-reconciliation-2026-08-13-1108",
+      "source": "Fresh strict-config Codex app-server catalog plus Robinhood read-only getters",
+      "retrieval_completed_at": "2026-08-13T11:08:45.659096-07:00",
+      "effective_date": "2026-08-13",
+      "status": "VERIFIED",
+      "proof_type": "RUNTIME_CATALOG_LIVE_READ",
+      "facts": {
+        "run_key": "2026-08-13-am",
+        "observed_at": "2026-08-13T11:08:45.659096-07:00",
+        "strict_config": true,
+        "working_directory": "C:/Users/aaron/Desktop/Stocks",
+        "tool_count": 15,
+        "allowed_tools": [
+          "get_accounts",
+          "get_earnings_calendar",
+          "get_earnings_results",
+          "get_equity_fundamentals",
+          "get_equity_historicals",
+          "get_equity_orders",
+          "get_equity_positions",
+          "get_equity_quotes",
+          "get_equity_technical_indicators",
+          "get_equity_tradability",
+          "get_financials",
+          "get_pnl_trade_history",
+          "get_portfolio",
+          "get_realized_pnl",
+          "search"
+        ],
+        "mutation_tools_present": [],
+        "required_getters": [
+          "get_accounts",
+          "get_portfolio",
+          "get_equity_positions",
+          "get_equity_orders",
+          "get_equity_quotes",
+          "get_equity_tradability"
+        ],
+        "required_getters_succeeded": 6,
+        "required_getters_total": 6,
+        "mutation_tool_called": false,
+        "position_count": 23,
+        "quote_count": 23,
+        "official_close_count": 23,
+        "tradability_count": 23,
+        "open_order_count": 0,
+        "open_orders_reconciled": true,
+        "open_order_issue": false,
+        "cash": "0.00",
+        "buying_power": "0.00",
+        "pending_deposits": "0.00",
+        "unsettled_funds": "0.00",
+        "open_order_reserve": "0.00",
+        "official_close_equity_value": "255.23593764",
+        "official_close_total_value": "255.23593764",
+        "broker_live_total_value_at_retrieval": "255.446944005",
+        "expected_daily_cash_arrived": false,
+        "position_change": "Owner-placed fills since the last valid run changed quantities in eight symbols; the automation made no trade."
+      }
+    },
+    {
+      "id": "nyse-market-open-2026-08-13",
+      "source": "NYSE Holidays & Trading Hours and 2026 yearly trading calendar",
+      "retrieval_completed_at": "2026-08-13T11:08:45.659096-07:00",
+      "effective_date": "2026-08-13",
+      "status": "VERIFIED",
+      "facts": {
+        "trading_date": "2026-08-13",
+        "market_status": "OPEN",
+        "holiday": false,
+        "core_session_eastern": "09:30-16:00",
+        "verification_time_pacific": "2026-08-13T11:08:45.659096-07:00"
+      },
+      "urls": [
+        "https://www.nyse.com/trade/hours-calendars",
+        "https://www.nyse.com/publicdocs/nyse/ICE_NYSE_2026_Yearly_Trading_Calendar.pdf"
+      ]
+    },
+    {
+      "id": "rh-fundamentals-2026-08-13",
+      "source": "Robinhood get_equity_fundamentals regular-session snapshot",
+      "retrieval_completed_at": "2026-08-13T11:08:45.659096-07:00",
+      "effective_date": "2026-08-13",
+      "status": "COMPLETE",
+      "facts": {
+        "market_date": "2026-08-13",
+        "symbols_reviewed": 20,
+        "selected_trailing_pe": {
+          "GEV": "29.766880",
+          "VRT": "65.248676",
+          "DLR": "95.855628",
+          "CDNS": "64.289125",
+          "PLTR": "146.175541",
+          "PPL": "21.062010",
+          "VT": "23.947002"
+        },
+        "standalone_verdict_allowed": false
+      }
+    },
+    {
+      "id": "gev-q2-2026-primary",
+      "source": "GE Vernova Q2 2026 investor-relations release",
+      "retrieval_completed_at": "2026-08-13T11:08:45.659096-07:00",
+      "effective_date": "2026-06-30",
+      "status": "VERIFIED",
+      "facts": {
+        "revenue_usd_billions": "11.1",
+        "revenue_growth_pct": "22",
+        "backlog_usd_billions": "176",
+        "orders_usd_billions": "24.2",
+        "raised_2026_revenue_guidance_low_usd_billions": "45.5",
+        "raised_2026_revenue_guidance_high_usd_billions": "46.5",
+        "raised_2026_fcf_guidance_low_usd_billions": "11.5",
+        "raised_2026_fcf_guidance_high_usd_billions": "12.5"
+      },
+      "urls": [
+        "https://www.gevernova.com/news/articles/ge-vernova-releases-second-quarter-2026-financial-results"
+      ]
+    },
+    {
+      "id": "vrt-q2-2026-primary",
+      "source": "Vertiv Q2 2026 investor-relations release",
+      "retrieval_completed_at": "2026-08-13T11:08:45.659096-07:00",
+      "effective_date": "2026-06-30",
+      "status": "VERIFIED",
+      "facts": {
+        "net_sales_usd_millions": "3274",
+        "sales_growth_pct": "24",
+        "adjusted_operating_margin_pct": "22.6",
+        "adjusted_free_cash_flow_usd_millions": "925",
+        "balance_sheet": "NET_CASH",
+        "guidance": "RAISED_ACROSS_KEY_METRICS"
+      },
+      "urls": [
+        "https://investors.vertiv.com/news/news-details/2026/Vertiv-Reports-Strong-Second-Quarter-2026-with-Diluted-EPS-Growth-of-53-Adjusted-Diluted-EPS-Growth-of-60-Raises-Full-Year-2026-Guidance-Across-All-Key-Metrics/default.aspx"
+      ]
+    },
+    {
+      "id": "dlr-q2-2026-primary",
+      "source": "Digital Realty Q2 2026 investor-relations release",
+      "retrieval_completed_at": "2026-08-13T11:08:45.659096-07:00",
+      "effective_date": "2026-06-30",
+      "status": "VERIFIED_WITH_BALANCE_SHEET_CAVEAT",
+      "facts": {
+        "annualized_gaap_base_rent_backlog_usd_billions": "1.9",
+        "q2_bookings_usd_millions": "307",
+        "cash_renewal_rate_increase_pct": "25.4",
+        "total_debt_usd_billions": "18.6",
+        "atm_net_proceeds_through_q2_usd_billions": "1.2",
+        "core_ffo_outlook": "RAISED"
+      },
+      "urls": [
+        "https://investor.digitalrealty.com/news-releases/news-release-details/digital-realty-reports-second-quarter-2026-results"
+      ]
+    },
+    {
+      "id": "fnv-q2-2026-event-status",
+      "source": "Franco-Nevada official investor-relations event and results pages",
+      "retrieval_completed_at": "2026-08-13T11:08:45.659096-07:00",
+      "effective_date": "2026-08-13",
+      "status": "INCOMPLETE_CURRENT_PRIMARY_RESULT",
+      "facts": {
+        "scheduled_release_date": "2026-08-11",
+        "scheduled_release_timing": "AFTER_MARKET_CLOSE",
+        "conference_call_date": "2026-08-12",
+        "current_primary_result_package_retrieved": false
+      },
+      "urls": [
+        "https://www.franco-nevada.com/home/default.aspx",
+        "https://www.franco-nevada.com/investors/financials/quarterly-results/default.aspx"
+      ]
+    },
+    {
+      "id": "nvda-q1-fy27-primary-2026-08-14",
+      "source": "NVIDIA Q1 fiscal 2027 investor-relations release and Form 10-Q",
+      "retrieval_completed_at": "2026-08-14T03:39:16.3173574-07:00",
+      "effective_date": "2026-04-26",
+      "status": "VERIFIED_WITH_NONOPERATING_GAIN_CAVEAT",
+      "facts": {
+        "revenue_usd_millions": "81615",
+        "revenue_growth_yoy_pct": "85",
+        "data_center_revenue_usd_millions": "75200",
+        "gaap_operating_income_usd_millions": "53536",
+        "gaap_operating_margin_pct": "65.6",
+        "gaap_net_income_usd_millions": "58321",
+        "gaap_net_margin_pct": "71.5",
+        "free_cash_flow_usd_millions": "48554",
+        "public_equity_unrealized_gain_usd_millions": "13379",
+        "nonmarketable_equity_gain_usd_millions": "2574",
+        "valuation_context": "The latest GAAP net margin and trailing P/E are affected by material non-operating investment gains; use operating profitability and a separately dated forward-estimate source for valuation."
+      },
+      "urls": [
+        "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx",
+        "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+        "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000036/nvda-20260512.htm"
+      ]
+    },
+    {
+      "id": "nvda-next-earnings-primary-2026-08-14",
+      "source": "NVIDIA investor-relations event notice",
+      "retrieval_completed_at": "2026-08-14T03:39:16.3173574-07:00",
+      "effective_date": "2026-08-14",
+      "status": "VERIFIED",
+      "facts": {
+        "results_date": "2026-08-26",
+        "expected_results_time_pacific": "13:20",
+        "conference_call_time_pacific": "14:00",
+        "trading_sessions_after_2026_08_14": 8,
+        "inside_five_session_lock_on_2026_08_14": false
+      },
+      "urls": [
+        "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Second-Quarter-Financial-Results/default.aspx"
+      ]
+    }
+  ],
+  "provider_conflicts": [
+    {
+      "id": "analyst-sample-conflicts-2026-08-10",
+      "record_path": "SYSTEM/state/analyst-ratings.json",
+      "tickers": [
+        "B",
+        "CARR",
+        "CDNS",
+        "FNV",
+        "LEU",
+        "PEG"
+      ],
+      "resolution": "DISPLAY_SEPARATELY"
+    }
+  ],
+  "unverified_claims": []
+}
