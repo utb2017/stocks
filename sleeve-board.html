@@ -1,0 +1,503 @@
+<title>Sleeve Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --ground:#F6F7F8; --panel:#FFFFFF; --ink:#14171A; --ink2:#3D464F; --muted:#5B646E;
+  --rule:#DCE0E4; --rule2:#EDF0F2; --track:#EEF0F3;
+  --pos:#2a78d6; --neg:#e34948; --crit:#d03b3b; --warn:#8A5D00;
+  --chipbg:#F0F2F4;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  color-scheme:dark;
+  --ground:#16181B; --panel:#1D2024; --ink:#EDEFF1; --ink2:#C2C9D0; --muted:#98A1AB;
+  --rule:#2C3137; --rule2:#23272C; --track:#262B31;
+  --pos:#3987e5; --neg:#e66767; --crit:#e66767; --warn:#E0A83C;
+  --chipbg:#262B31;
+} }
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#16181B; --panel:#1D2024; --ink:#EDEFF1; --ink2:#C2C9D0; --muted:#98A1AB;
+  --rule:#2C3137; --rule2:#23272C; --track:#262B31;
+  --pos:#3987e5; --neg:#e66767; --crit:#e66767; --warn:#E0A83C;
+  --chipbg:#262B31;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  font-size:15px;line-height:1.5;margin:0;padding:28px 20px 72px;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:34px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;font-variant-numeric:tabular-nums}
+.dim{color:var(--muted)}
+h1{font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:0}
+h2{font-size:13px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 3px}
+.sub{font-size:13px;color:var(--muted);margin:0}
+
+header{border-bottom:1px solid var(--rule);padding-bottom:16px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+
+/* verdict */
+.verdict{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
+.vk{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.vh{font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.15;margin:0 0 10px;text-wrap:balance}
+.vb{font-size:14px;color:var(--ink2);margin:0;max-width:62ch}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.stat{background:var(--panel);padding:14px 16px}
+.sk{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.sv{font-size:21px;font-weight:600;letter-spacing:-.02em}
+.ss{font-size:12px;color:var(--muted);margin-top:2px}
+.up{color:var(--pos)} .dn{color:var(--neg)}
+
+/* charts */
+.chart{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:18px 20px 14px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);
+  margin:10px 0 14px;padding-bottom:11px;border-bottom:1px solid var(--rule2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:11px;height:11px;border-radius:2px;flex:none}
+.row{display:grid;grid-template-columns:112px 1fr 62px 76px;align-items:center;
+  gap:10px;padding:2.5px 0;border-radius:2px;outline:none}
+.row:hover,.row:focus-visible{background:var(--rule2)}
+.row:focus-visible{outline:2px solid var(--pos);outline-offset:1px}
+.rlab{font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rval{font-size:12.5px;text-align:right;font-weight:500}
+.rsub{font-size:11px;color:var(--muted);display:flex;gap:3px;flex-wrap:wrap}
+.track{position:relative;height:17px;background:var(--track);border-radius:2px}
+.bar{position:absolute;top:3px;height:11px;border-radius:2px}
+.bar.pos{background:var(--pos)} .bar.neg{background:var(--neg)}
+.zero{position:absolute;left:50%;top:-1px;bottom:-1px;width:1px;background:var(--muted);opacity:.55}
+.thresh{position:absolute;left:calc(50% + 24.29%);top:0;bottom:0;width:1px;
+  background:var(--neg);opacity:.5}
+.axis{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);
+  margin-top:9px;padding-top:8px;border-top:1px solid var(--rule2)}
+
+/* chips */
+.c{font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:9.5px;font-weight:500;
+  letter-spacing:.05em;padding:1.5px 4.5px;border-radius:2px;background:var(--chipbg);color:var(--muted);white-space:nowrap}
+.c-ext,.c-er5{color:var(--crit);box-shadow:inset 0 0 0 1px currentColor}
+.c-exit{color:var(--warn);box-shadow:inset 0 0 0 1px currentColor}
+
+/* findings */
+.finds{display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.find{background:var(--panel);padding:13px 16px;display:grid;
+  grid-template-columns:130px 1fr;gap:14px;align-items:baseline}
+.fh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fb{font-size:13.5px;color:var(--ink2)}
+.fb b{color:var(--ink);font-weight:600}
+
+/* table */
+.tw{overflow-x:auto;background:var(--panel);border:1px solid var(--rule);border-radius:3px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:660px}
+th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-weight:500;text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule);white-space:nowrap}
+td{padding:7px 10px;border-bottom:1px solid var(--rule2);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--rule2)}
+.n{text-align:right} .tk{font-weight:600}
+.fl{display:flex;gap:3px;flex-wrap:wrap;min-width:120px}
+.tick{color:var(--pos)}
+
+/* tooltip */
+#tip{position:fixed;z-index:50;pointer-events:none;opacity:0;transition:opacity .12s;
+  background:var(--ink);color:var(--ground);font-size:12px;line-height:1.4;
+  padding:7px 10px;border-radius:3px;max-width:260px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:560px){
+  .row{grid-template-columns:70px 1fr 56px} .rsub{display:none}
+  .find{grid-template-columns:1fr;gap:4px} .vh{font-size:22px}
+}
+footer{font-size:11.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;max-width:70ch}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Sleeve Board</h1>
+  <p class="sub mono">Thu Aug 20 2026 · 11:36 PT · market open · coverage 24/24</p>
+</header>
+
+<div class="verdict">
+  <div class="vk">Suggestion</div>
+  <p class="vh">Hold the cash. There is $0.86 to deploy.</p>
+  <p class="vb">Cash sits at 5.21% against a 5% floor of $20.19, leaving <b>$0.86</b> deployable — below Robinhood's $1.00 minimum. Every sleeve is within $3.61 of target and the core is dead on at 30.01%. The rebalance is finished; there is nothing left to buy today.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="sk">Account</div><div class="sv mono">$403.78</div><div class="ss mono">equity $382.73 · cash $21.05</div></div>
+  <div class="stat"><div class="sk">Today</div><div class="sv mono dn">-1.05%</div><div class="ss mono">-4.27 dollars</div></div>
+  <div class="stat"><div class="sk">Unrealized</div><div class="sv mono dn">-3.52</div><div class="ss mono">on $386.25 cost</div></div>
+  <div class="stat"><div class="sk">Deployable</div><div class="sv mono">$0.86</div><div class="ss">under $1.00 floor</div></div>
+</div>
+
+<section class="chart">
+  <h2>Sleeve gap to target</h2>
+  <p class="sub">Dollars needed to reach each target weight.</p>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--pos)"></i>Under target — money goes here</span>
+    <span><i class="sw" style="background:var(--neg)"></i>Over target — gets nothing</span>
+  </div>
+  <div class="row" tabindex="0" data-tip="Global core — 30.01% of book vs 30% target. Gap -0.02 dollars.">
+<div class="rlab">Global core</div>
+<div class="track"><div class="zero"></div><div class="bar neg" style="left:49.734%;width:0.266%"></div></div>
+<div class="rval mono">-0.02</div>
+<div class="rsub mono">30.0<span class="dim">/30%</span></div>
+</div><div class="row" tabindex="0" data-tip="NE power — 25.39% of book vs 25% target. Gap -1.56 dollars.">
+<div class="rlab">NE power</div>
+<div class="track"><div class="zero"></div><div class="bar neg" style="left:31.027%;width:18.973%"></div></div>
+<div class="rval mono">-1.56</div>
+<div class="rsub mono">25.4<span class="dim">/25%</span></div>
+</div><div class="row" tabindex="0" data-tip="Defense / gov — 14.32% of book vs 15% target. Gap +2.73 dollars.">
+<div class="rlab">Defense / gov</div>
+<div class="track"><div class="zero"></div><div class="bar pos" style="left:50%;width:33.268%"></div></div>
+<div class="rval mono">+2.73</div>
+<div class="rsub mono">14.3<span class="dim">/15%</span></div>
+</div><div class="row" tabindex="0" data-tip="Enablers — 9.85% of book vs 10% target. Gap +0.61 dollars.">
+<div class="rlab">Enablers</div>
+<div class="track"><div class="zero"></div><div class="bar pos" style="left:50%;width:7.396%"></div></div>
+<div class="rval mono">+0.61</div>
+<div class="rsub mono">9.8<span class="dim">/10%</span></div>
+</div><div class="row" tabindex="0" data-tip="Reg. utilities — 10.89% of book vs 10% target. Gap -3.61 dollars.">
+<div class="rlab">Reg. utilities</div>
+<div class="track"><div class="zero"></div><div class="bar neg" style="left:6.000%;width:44.000%"></div></div>
+<div class="rval mono">-3.61</div>
+<div class="rsub mono">10.9<span class="dim">/10%</span></div>
+</div><div class="row" tabindex="0" data-tip="Precious metals — 4.33% of book vs 5% target. Gap +2.71 dollars.">
+<div class="rlab">Precious metals</div>
+<div class="track"><div class="zero"></div><div class="bar pos" style="left:50%;width:33.075%"></div></div>
+<div class="rval mono">+2.71</div>
+<div class="rsub mono">4.3<span class="dim">/5%</span></div>
+</div><div class="row" tabindex="0" data-tip="Cash reserve — 5.21% of book vs 5% target. Gap -0.86 dollars.">
+<div class="rlab">Cash reserve</div>
+<div class="track"><div class="zero"></div><div class="bar neg" style="left:39.501%;width:10.499%"></div></div>
+<div class="rval mono">-0.86</div>
+<div class="rsub mono">5.2<span class="dim">/5%</span></div>
+</div>
+  <div class="axis"><span>−$3.61 over</span><span>0</span><span>+$2.73 under</span></div>
+</section>
+
+<section class="chart">
+  <h2>20-session move — where the low names are</h2>
+  <p class="sub">Every holding against its close 20 sessions ago (Jul 23). The red rule marks the proposed +25% extension cutoff.</p>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--pos)"></i>Below +25% — addable</span>
+    <span><i class="sw" style="background:var(--neg)"></i>Extended — do not add</span>
+    <span><i class="c c-exit">EXIT</i>exit queue</span>
+    <span><i class="c c-sub5">SUB5</i>under $5</span>
+    <span><i class="c c-er5">ER5</i>earnings inside 5 sessions</span>
+  </div>
+  <div class="row" tabindex="0" data-tip="VST — -17.7% over 20 sessions. Position $26.70. Next report Nov 5.">
+<div class="rlab mono">VST</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:32.761%;width:17.239%"></div></div>
+<div class="rval mono">-17.7%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="TLN — -16.9% over 20 sessions. Position $6.69. Next report Nov 4.">
+<div class="rlab mono">TLN</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:33.563%;width:16.437%"></div></div>
+<div class="rval mono">-16.9%</div>
+<div class="rsub"><i class="c c-exit">EXIT</i></div>
+</div><div class="row" tabindex="0" data-tip="VRT — -14.2% over 20 sessions. Position $0.97. Next report Oct 21.">
+<div class="rlab mono">VRT</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:36.156%;width:13.844%"></div></div>
+<div class="rval mono">-14.2%</div>
+<div class="rsub"><i class="c c-sub5">SUB5</i></div>
+</div><div class="row" tabindex="0" data-tip="CARR — -12.8% over 20 sessions. Position $1.87. Next report Oct 27.">
+<div class="rlab mono">CARR</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:37.522%;width:12.478%"></div></div>
+<div class="rval mono">-12.8%</div>
+<div class="rsub"><i class="c c-sub5">SUB5</i><i class="c c-exit">EXIT</i></div>
+</div><div class="row" tabindex="0" data-tip="GEV — -7.7% over 20 sessions. Position $18.64. Next report Oct 28.">
+<div class="rlab mono">GEV</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:42.470%;width:7.530%"></div></div>
+<div class="rval mono">-7.7%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="SPXC — -6.8% over 20 sessions. Position $10.45. Next report Oct 29.">
+<div class="rlab mono">SPXC</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:43.356%;width:6.644%"></div></div>
+<div class="rval mono">-6.8%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="PEG — -5.9% over 20 sessions. Position $7.96. Next report Nov 2.">
+<div class="rlab mono">PEG</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:44.232%;width:5.768%"></div></div>
+<div class="rval mono">-5.9%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="CDNS — -5.5% over 20 sessions. Position $8.30. Next report Oct 26.">
+<div class="rlab mono">CDNS</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:44.684%;width:5.316%"></div></div>
+<div class="rval mono">-5.5%</div>
+<div class="rsub"><i class="c c-exit">EXIT</i></div>
+</div><div class="row" tabindex="0" data-tip="PPL — -2.2% over 20 sessions. Position $41.66. Next report Nov 4.">
+<div class="rlab mono">PPL</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:47.828%;width:2.172%"></div></div>
+<div class="rval mono">-2.2%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="JBL — -1.9% over 20 sessions. Position $2.66. Next report Sep 24.">
+<div class="rlab mono">JBL</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:48.184%;width:1.816%"></div></div>
+<div class="rval mono">-1.9%</div>
+<div class="rsub"><i class="c c-sub5">SUB5</i></div>
+</div><div class="row" tabindex="0" data-tip="CWT — -1.7% over 20 sessions. Position $11.08. Next report Oct 29.">
+<div class="rlab mono">CWT</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:48.322%;width:1.678%"></div></div>
+<div class="rval mono">-1.7%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="CEG — -1.3% over 20 sessions. Position $8.81. Next report Nov 6.">
+<div class="rlab mono">CEG</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:48.718%;width:1.282%"></div></div>
+<div class="rval mono">-1.3%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="AWK — +2.8% over 20 sessions. Position $21.47. Next report Oct 28.">
+<div class="rlab mono">AWK</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:2.689%"></div></div>
+<div class="rval mono">+2.8%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="VT — +3.6% over 20 sessions. Position $121.16. Next report —.">
+<div class="rlab mono">VT</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:3.496%"></div></div>
+<div class="rval mono">+3.6%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="NVDA — +3.7% over 20 sessions. Position $9.61. Next report Aug 26.">
+<div class="rlab mono">NVDA</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:3.635%"></div></div>
+<div class="rval mono">+3.7%</div>
+<div class="rsub"><i class="c c-er5">ER5</i></div>
+</div><div class="row" tabindex="0" data-tip="SAIC — +7.8% over 20 sessions. Position $9.92. Next report Aug 31.">
+<div class="rlab mono">SAIC</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:7.552%"></div></div>
+<div class="rval mono">+7.8%</div>
+<div class="rsub"><i class="c c-exit">EXIT</i></div>
+</div><div class="row" tabindex="0" data-tip="DLR — +8.5% over 20 sessions. Position $5.91. Next report Oct 22.">
+<div class="rlab mono">DLR</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:8.224%"></div></div>
+<div class="rval mono">+8.5%</div>
+<div class="rsub"></div>
+</div><div class="row" tabindex="0" data-tip="YORW — +10.6% over 20 sessions. Position $3.48. Next report Nov 5.">
+<div class="rlab mono">YORW</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:10.261%"></div></div>
+<div class="rval mono">+10.6%</div>
+<div class="rsub"><i class="c c-sub5">SUB5</i></div>
+</div><div class="row" tabindex="0" data-tip="BAH — +15.3% over 20 sessions. Position $12.04. Next report Oct 23.">
+<div class="rlab mono">BAH</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:14.869%"></div></div>
+<div class="rval mono">+15.3%</div>
+<div class="rsub"><i class="c c-exit">EXIT</i></div>
+</div><div class="row" tabindex="0" data-tip="FNV — +19.4% over 20 sessions. Position $4.64. Next report Nov 2.">
+<div class="rlab mono">FNV</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar pos" style="left:50%;width:18.898%"></div></div>
+<div class="rval mono">+19.4%</div>
+<div class="rsub"><i class="c c-sub5">SUB5</i></div>
+</div><div class="row" tabindex="0" data-tip="LDOS — +27.3% over 20 sessions. Position $21.44. Next report Nov 3.">
+<div class="rlab mono">LDOS</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar neg" style="left:50%;width:26.543%"></div></div>
+<div class="rval mono">+27.3%</div>
+<div class="rsub"><i class="c c-ext">EXT</i></div>
+</div><div class="row" tabindex="0" data-tip="CACI — +34.1% over 20 sessions. Position $6.96. Next report Oct 21.">
+<div class="rlab mono">CACI</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar neg" style="left:50%;width:33.126%"></div></div>
+<div class="rval mono">+34.1%</div>
+<div class="rsub"><i class="c c-ext">EXT</i></div>
+</div><div class="row" tabindex="0" data-tip="PLTR — +41.6% over 20 sessions. Position $7.47. Next report Nov 2.">
+<div class="rlab mono">PLTR</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar neg" style="left:50%;width:40.442%"></div></div>
+<div class="rval mono">+41.6%</div>
+<div class="rsub"><i class="c c-ext">EXT</i></div>
+</div><div class="row" tabindex="0" data-tip="AEM — +45.3% over 20 sessions. Position $12.84. Next report Oct 28.">
+<div class="rlab mono">AEM</div>
+<div class="track"><div class="zero"></div><div class="thresh"></div><div class="bar neg" style="left:50%;width:44.000%"></div></div>
+<div class="rval mono">+45.3%</div>
+<div class="rsub"><i class="c c-ext">EXT</i></div>
+</div>
+  <div class="axis"><span>−45%</span><span>0</span><span>+45%</span></div>
+</section>
+
+<section>
+  <h2 style="margin-bottom:10px">Structural checks</h2>
+  <div class="finds">
+    <div class="find"><div class="fh">Theme concentration</div><div class="fb">NE power + utilities + enablers = <b>$186.26, 46.1%</b> of the book. Three sleeves, one bet on electricity demand and the data-center buildout. VT at 30% is the only real diversifier.</div></div>
+    <div class="find"><div class="fh">Sub-$5 census</div><div class="fb"><b>5 positions</b> below the $5 floor totalling $13.62 — FNV, YORW, JBL, CARR, VRT. VRT is $0.97. The floor only ever governed new buys; nothing audits what is already on the book.</div></div>
+    <div class="find"><div class="fh">Exit queue</div><div class="fb"><b>$38.83, 9.6%</b> across TLN, BAH, SAIC, CDNS, CARR. The queue says "do not add" and has no mechanism to sell, so these sit indefinitely.</div></div>
+    <div class="find"><div class="fh">Defense is blocked</div><div class="fb">Defense is the largest underweight at <b>+$2.73</b>, and all five names are disqualified: LDOS +27.3% and CACI +34.1% and PLTR +41.6% are extended; BAH and SAIC are exit queue. The sleeve stays unfilled — <b>not</b> because nothing was found, but because nothing passes.</div></div>
+    <div class="find"><div class="fh">No fixed income</div><div class="fb">The model has <b>no bond sleeve</b>. Cash at 5% is doing two jobs at once — dry powder and the entire defensive allocation.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 style="margin-bottom:10px">All 24 holdings</h2>
+  <div class="tw"><table>
+  <thead><tr><th>Ticker</th><th>Sleeve</th><th class="n">Value</th><th class="n">Wt</th><th class="n">Day</th><th class="n">P/L</th><th class="n">20d</th><th class="n">Next ER</th><th>Flags</th></tr></thead>
+  <tbody><tr>
+<td class="mono tk">VT</td><td class="dim">core</td>
+<td class="mono n">121.16</td><td class="mono n dim">30.01%</td>
+<td class="mono n dn">-0.52%</td>
+<td class="mono n dn">-1.54</td>
+<td class="mono n ">+3.6%</td>
+<td class="mono n dim">—</td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">PPL</td><td class="dim">nepower</td>
+<td class="mono n">41.66</td><td class="mono n dim">10.32%</td>
+<td class="mono n dn">-0.17%</td>
+<td class="mono n dn">-0.34</td>
+<td class="mono n ">-2.2%</td>
+<td class="mono n dim">Nov 4 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">VST</td><td class="dim">nepower</td>
+<td class="mono n">26.70</td><td class="mono n dim">6.61%</td>
+<td class="mono n dn">-2.59%</td>
+<td class="mono n dn">-1.30</td>
+<td class="mono n ">-17.7%</td>
+<td class="mono n dim">Nov 5 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">AWK</td><td class="dim">utilities</td>
+<td class="mono n">21.47</td><td class="mono n dim">5.32%</td>
+<td class="mono n dn">-0.42%</td>
+<td class="mono n up">+0.47</td>
+<td class="mono n ">+2.8%</td>
+<td class="mono n dim">Oct 28 <span class="tick" title="issuer-confirmed">✓</span></td><td class="fl"></td></tr><tr>
+<td class="mono tk">LDOS</td><td class="dim">defense</td>
+<td class="mono n">21.44</td><td class="mono n dim">5.31%</td>
+<td class="mono n dn">-3.99%</td>
+<td class="mono n up">+0.44</td>
+<td class="mono n dn">+27.3%</td>
+<td class="mono n dim">Nov 3 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-ext">EXT</i></td></tr><tr>
+<td class="mono tk">GEV</td><td class="dim">nepower</td>
+<td class="mono n">18.64</td><td class="mono n dim">4.62%</td>
+<td class="mono n dn">-3.66%</td>
+<td class="mono n dn">-1.36</td>
+<td class="mono n ">-7.7%</td>
+<td class="mono n dim">Oct 28 <span class="tick" title="issuer-confirmed">✓</span></td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">AEM</td><td class="dim">metals</td>
+<td class="mono n">12.84</td><td class="mono n dim">3.18%</td>
+<td class="mono n up">+1.07%</td>
+<td class="mono n up">+1.84</td>
+<td class="mono n dn">+45.3%</td>
+<td class="mono n dim">Oct 28 <span class="tick" title="issuer-confirmed">✓</span></td><td class="fl"><i class="c c-ext">EXT</i></td></tr><tr>
+<td class="mono tk">BAH</td><td class="dim">defense</td>
+<td class="mono n">12.04</td><td class="mono n dim">2.98%</td>
+<td class="mono n dn">-3.67%</td>
+<td class="mono n up">+0.04</td>
+<td class="mono n ">+15.3%</td>
+<td class="mono n dim">Oct 23 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-exit">EXIT</i></td></tr><tr>
+<td class="mono tk">CWT</td><td class="dim">utilities</td>
+<td class="mono n">11.08</td><td class="mono n dim">2.74%</td>
+<td class="mono n up">+0.34%</td>
+<td class="mono n up">+0.08</td>
+<td class="mono n ">-1.7%</td>
+<td class="mono n dim">Oct 29 <span class="dim" title="provider-estimated">~</span></td><td class="fl"></td></tr><tr>
+<td class="mono tk">SPXC</td><td class="dim">enablers</td>
+<td class="mono n">10.45</td><td class="mono n dim">2.59%</td>
+<td class="mono n dn">-1.49%</td>
+<td class="mono n dn">-0.55</td>
+<td class="mono n ">-6.8%</td>
+<td class="mono n dim">Oct 29 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">SAIC</td><td class="dim">defense</td>
+<td class="mono n">9.92</td><td class="mono n dim">2.46%</td>
+<td class="mono n dn">-2.45%</td>
+<td class="mono n dn">-0.08</td>
+<td class="mono n ">+7.8%</td>
+<td class="mono n dim">Aug 31 <span class="tick" title="issuer-confirmed">✓</span></td><td class="fl"><i class="c c-exit">EXIT</i><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">NVDA</td><td class="dim">enablers</td>
+<td class="mono n">9.61</td><td class="mono n dim">2.38%</td>
+<td class="mono n dn">-0.46%</td>
+<td class="mono n dn">-0.39</td>
+<td class="mono n ">+3.7%</td>
+<td class="mono n dim">Aug 26 <span class="tick" title="issuer-confirmed">✓</span></td><td class="fl"><i class="c c-er5">ER5</i><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">CEG</td><td class="dim">nepower</td>
+<td class="mono n">8.81</td><td class="mono n dim">2.18%</td>
+<td class="mono n dn">-0.80%</td>
+<td class="mono n dn">-0.19</td>
+<td class="mono n ">-1.3%</td>
+<td class="mono n dim">Nov 6 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">CDNS</td><td class="dim">enablers</td>
+<td class="mono n">8.30</td><td class="mono n dim">2.06%</td>
+<td class="mono n dn">-0.83%</td>
+<td class="mono n dn">-0.70</td>
+<td class="mono n ">-5.5%</td>
+<td class="mono n dim">Oct 26 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-exit">EXIT</i><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">PEG</td><td class="dim">utilities</td>
+<td class="mono n">7.96</td><td class="mono n dim">1.97%</td>
+<td class="mono n dn">-0.39%</td>
+<td class="mono n dn">-0.04</td>
+<td class="mono n ">-5.9%</td>
+<td class="mono n dim">Nov 2 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">PLTR</td><td class="dim">defense</td>
+<td class="mono n">7.47</td><td class="mono n dim">1.85%</td>
+<td class="mono n dn">-0.27%</td>
+<td class="mono n up">+0.47</td>
+<td class="mono n dn">+41.6%</td>
+<td class="mono n dim">Nov 2 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-ext">EXT</i></td></tr><tr>
+<td class="mono tk">CACI</td><td class="dim">defense</td>
+<td class="mono n">6.96</td><td class="mono n dim">1.72%</td>
+<td class="mono n dn">-2.75%</td>
+<td class="mono n dn">-0.04</td>
+<td class="mono n dn">+34.1%</td>
+<td class="mono n dim">Oct 21 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-ext">EXT</i><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">TLN</td><td class="dim">nepower</td>
+<td class="mono n">6.69</td><td class="mono n dim">1.66%</td>
+<td class="mono n dn">-2.25%</td>
+<td class="mono n dn">-0.31</td>
+<td class="mono n ">-16.9%</td>
+<td class="mono n dim">Nov 4 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-exit">EXIT</i><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">DLR</td><td class="dim">enablers</td>
+<td class="mono n">5.91</td><td class="mono n dim">1.46%</td>
+<td class="mono n up">+1.13%</td>
+<td class="mono n dn">-0.09</td>
+<td class="mono n ">+8.5%</td>
+<td class="mono n dim">Oct 22 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">FNV</td><td class="dim">metals</td>
+<td class="mono n">4.64</td><td class="mono n dim">1.15%</td>
+<td class="mono n up">+1.92%</td>
+<td class="mono n up">+0.34</td>
+<td class="mono n ">+19.4%</td>
+<td class="mono n dim">Nov 2 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-sub5">SUB5</i></td></tr><tr>
+<td class="mono tk">YORW</td><td class="dim">utilities</td>
+<td class="mono n">3.48</td><td class="mono n dim">0.86%</td>
+<td class="mono n up">+1.48%</td>
+<td class="mono n up">+0.23</td>
+<td class="mono n ">+10.6%</td>
+<td class="mono n dim">Nov 5 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-sub5">SUB5</i></td></tr><tr>
+<td class="mono tk">JBL</td><td class="dim">enablers</td>
+<td class="mono n">2.66</td><td class="mono n dim">0.66%</td>
+<td class="mono n dn">-2.09%</td>
+<td class="mono n dn">-0.34</td>
+<td class="mono n ">-1.9%</td>
+<td class="mono n dim">Sep 24 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-sub5">SUB5</i><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">CARR</td><td class="dim">enablers</td>
+<td class="mono n">1.87</td><td class="mono n dim">0.46%</td>
+<td class="mono n dn">-1.52%</td>
+<td class="mono n dn">-0.13</td>
+<td class="mono n ">-12.8%</td>
+<td class="mono n dim">Oct 27 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-sub5">SUB5</i><i class="c c-exit">EXIT</i><i class="c c-loss">LOSS</i></td></tr><tr>
+<td class="mono tk">VRT</td><td class="dim">enablers</td>
+<td class="mono n">0.97</td><td class="mono n dim">0.24%</td>
+<td class="mono n dn">-0.11%</td>
+<td class="mono n dn">-0.03</td>
+<td class="mono n ">-14.2%</td>
+<td class="mono n dim">Oct 21 <span class="dim" title="provider-estimated">~</span></td><td class="fl"><i class="c c-sub5">SUB5</i><i class="c c-loss">LOSS</i></td></tr></tbody></table></div>
+</section>
+
+<footer>
+Every figure pulled live from the Robinhood MCP this run — portfolio, positions, orders, quotes, daily bars and per-symbol earnings for all 24 holdings. ✓ marks an issuer-confirmed report date, ~ a provider estimate. The +25% extension cutoff is proposed, not approved; it is calibrated to the names already barred by precedent (CACI +45%, AEM +36%). Suggestion only — no order was placed, reviewed, or modified.
+</footer>
+</div>
+
+<div id="tip" role="status"></div>
+<script>
+const tip=document.getElementById('tip');
+function show(e,t){tip.textContent=t;tip.style.opacity='1';move(e);}
+function move(e){const r=tip.getBoundingClientRect();
+  let x=(e.clientX||0)+14,y=(e.clientY||0)+16;
+  if(x+r.width>innerWidth-8)x=innerWidth-r.width-8;
+  if(y+r.height>innerHeight-8)y=(e.clientY||0)-r.height-10;
+  tip.style.left=x+'px';tip.style.top=y+'px';}
+function hide(){tip.style.opacity='0';}
+document.querySelectorAll('.row[data-tip]').forEach(el=>{
+  el.addEventListener('mouseenter',e=>show(e,el.dataset.tip));
+  el.addEventListener('mousemove',move);
+  el.addEventListener('mouseleave',hide);
+  el.addEventListener('focus',()=>{const b=el.getBoundingClientRect();
+    show({clientX:b.left+b.width/2,clientY:b.top},el.dataset.tip);});
+  el.addEventListener('blur',hide);
+});
+</script>
